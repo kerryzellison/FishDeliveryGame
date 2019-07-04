@@ -101,6 +101,7 @@ public class InputManager2 : MonoBehaviour
             }
             else
             {
+                Debug.Log("resetting steering");
                 dc.Steer(0);
             }
             
