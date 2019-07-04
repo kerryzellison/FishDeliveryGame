@@ -16,17 +16,17 @@ public class InputManager2 : MonoBehaviour
     //input button names
     string camY;
     string camX;
-    string resetCam;
+    string reset;
     string vertical;
     string horizontal;
     string accelerate;
     string reverse;
     string jump;
     string shoot;
-    // axis values
+    // stick values
     float verticalVal;
+
     float horizontalVal;
-    float accelerateVal;
 
 
     //states
@@ -51,7 +51,7 @@ public class InputManager2 : MonoBehaviour
         //set input to playernumber
         camY = "CamY"+playerNumber;
         camX = "CamX"+playerNumber;
-        resetCam = "ResetCam"+playerNumber;
+        reset = "Reset"+playerNumber;
         vertical = "Vertical"+playerNumber;
         horizontal = "Horizontal"+playerNumber;
         accelerate = "Accelerate"+playerNumber;
@@ -86,15 +86,10 @@ public class InputManager2 : MonoBehaviour
             cc.RotateCamera(camYVal, camXVal);
         }
 
-        if(Input.GetButtonDown(resetCam))
-        {
-           //Debug.Log("Reset");
-           //cc.ResetCamera();
-        }
-
 // ******Car movement******
         verticalVal = Input.GetAxis(vertical);
         horizontalVal = Input.GetAxis(horizontal);
+        Debug.Log( "hori" + horizontalVal);
         if(IsGrounded)
         {
             //Steering
@@ -127,7 +122,6 @@ public class InputManager2 : MonoBehaviour
         }
 
         //Accelerate
-        
         if(Input.GetButton(accelerate) && IsGrounded)
         {
            //Debug.Log("Accelerate");
