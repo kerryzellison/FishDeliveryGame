@@ -83,7 +83,7 @@ public class InputManager2 : MonoBehaviour
 
         if(camYVal !=0|| camXVal !=0)
         {
-            cc.RotateCamera(camYVal, camXVal);
+            //cc.RotateCamera(camYVal, camXVal);
         }
 
 // ******Car movement******
