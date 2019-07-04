@@ -8,6 +8,7 @@ public class RigidBodyInfo : MonoBehaviour
     Rigidbody rb;
 
     public float speed;
+    public float highestSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +19,10 @@ public class RigidBodyInfo : MonoBehaviour
     void Update()
     {
         speed = rb.velocity.magnitude;
+
+        if (speed > highestSpeed)
+        {
+            highestSpeed = speed;
+        }
     }
 }
