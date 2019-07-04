@@ -89,7 +89,6 @@ public class InputManager2 : MonoBehaviour
 // ******Car movement******
         verticalVal = Input.GetAxis(vertical);
         horizontalVal = Input.GetAxis(horizontal);
-        Debug.Log( "hori" + horizontalVal);
         if(IsGrounded)
         {
             //Steering
