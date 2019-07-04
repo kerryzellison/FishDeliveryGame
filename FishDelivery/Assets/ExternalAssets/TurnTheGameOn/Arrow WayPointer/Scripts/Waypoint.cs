@@ -5,7 +5,8 @@
 	{
 
 		public int radius;
-		[HideInInspector] public WaypointController waypointController;
+        //[HideInInspector] 
+        public WaypointController waypointController;
 		[HideInInspector] public int waypointNumber;
 
 		void Update(){

@@ -84,11 +84,16 @@
 				currentWaypoint.gameObject.SetActive (true);
 				nextWP += 1;
 			}
+            else
+            {
+                WaypointEvent(check);
+            }
 			if (check == TotalWaypoints) {
 				Destroy (waypointArrow.gameObject);
 				Destroy (gameObject);
-			}
-		}
+            }
+            Debug.Log("Change Target " + check);
+        }
 
 		public void CreateArrow(){
 			GameObject instance = Instantiate(Resources.Load("Waypoint Arrow", typeof(GameObject))) as GameObject;
