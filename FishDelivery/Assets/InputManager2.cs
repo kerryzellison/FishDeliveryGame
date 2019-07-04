@@ -90,7 +90,6 @@ public class InputManager2 : MonoBehaviour
         {
            //Debug.Log("Reset");
            //cc.ResetCamera();
-           sc.rotateCarTowardsHook();
         }
 
 // ******Car movement******
@@ -182,16 +181,9 @@ public class InputManager2 : MonoBehaviour
            HasJumped=true;
         }
 
-        if(Input.GetButtonDown(shoot))
-        {
-           //Debug.Log("Shoot");
-           hb.ShootHook();
-        }
-
         //Check States
         IsGrounded = dc.CheckWheelsGrounded();
         HasJumped = !IsGrounded;
-        HasHit = hb.GetHasHit();
         HasTiltedHorizontal = SetStickBool(horizontalVal);
         HasTiltedVertical = SetStickBool(verticalVal);
 
