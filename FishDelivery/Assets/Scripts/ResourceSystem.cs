@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourceSystem : MonoBehaviour
 {
@@ -9,8 +10,24 @@ public class ResourceSystem : MonoBehaviour
     private int moneyInt = 0;
     private readonly string moneyPath = "money1";
 
+    // UI counters for displaying resources
+    public Text moneyCounterText;
+    public Text xpCounterText;
+
     void Start()
     {
+        if (moneyCounterText != null && xpCounterText != null)
+        {
+            // Set UI counters:
+            moneyCounterText.text = "Balance: " + GetMoney().ToString() + "¥";
+            xpCounterText.text = "XP: " + GetXP().ToString();
+        }
+        else
+        {
+            Debug.Log("Resource System Error! - Please attach Text objects in inspector!");
+        }
+
+
         if (PlayerPrefs.GetInt(moneyPath) != 0)
         {
             moneyInt = PlayerPrefs.GetInt(moneyPath);
@@ -38,13 +55,30 @@ public class ResourceSystem : MonoBehaviour
     public void AddMoney(int amount)
     {
         amount = PlayerPrefs.GetInt(moneyPath) + amount;
-        PlayerPrefs.SetInt(moneyPath, amount);
-        Debug.Log("Money now: " + amount);
+
+        if (amount >= 0)
+        {
+            PlayerPrefs.SetInt(moneyPath, amount);
+            moneyCounterText.text = "Balance: " + amount + "¥";
+            Debug.Log("Money now: " + amount);
+        } else
+        {
+            Debug.Log("Insufficient funds - Cannot be less than 0!");
+        }
+
     }
 
     public void SetMoney(int amount)
     {
-        PlayerPrefs.SetInt(moneyPath, amount);
+        if (amount >= 0)
+        {
+            PlayerPrefs.SetInt(moneyPath, amount);
+            moneyCounterText.text = "Balance: " + amount + "¥";
+        } else
+        {
+            Debug.Log("Failed to set funds - most be more than 0!");
+        }
+
     }
 
     public int GetMoney()
@@ -57,12 +91,14 @@ public class ResourceSystem : MonoBehaviour
     {
         amount = PlayerPrefs.GetInt(xpPath) + amount;
         PlayerPrefs.SetInt(xpPath, amount);
+        xpCounterText.text = "XP: " + amount;
         Debug.Log("XP set to " + amount);
     }
 
     public void SetXP(int amount)
     {
         PlayerPrefs.SetInt(xpPath, amount);
+        xpCounterText.text = "XP: " + amount;
     }
 
     public int GetXP()
@@ -79,6 +115,12 @@ public class ResourceSystem : MonoBehaviour
     public string GetXPPath()
     {
         return xpPath;
+    }
+
+    public void ResetAll()
+    {
+        PlayerPrefs.SetInt(moneyPath, 0);
+        PlayerPrefs.SetInt(xpPath, 0);
     }
 
 }
