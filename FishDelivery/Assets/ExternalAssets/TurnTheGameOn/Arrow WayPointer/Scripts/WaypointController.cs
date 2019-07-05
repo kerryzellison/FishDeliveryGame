@@ -25,9 +25,9 @@
 		public WaypointComponents[] waypointList;
 		private GameObject newWaypoint;
 		private string newWaypointName;
-		private int nextWP;
+		public int nextWP;
 		private Transform waypointArrow; //Transform used to reference the Waypoint Arrow
-		private Transform currentWaypoint; //Transforms used to identify the Waypoint Arrow's target
+		public Transform currentWaypoint; //Transforms used to identify the Waypoint Arrow's target
 		private Transform arrowTarget;
 
 		void Start () {
