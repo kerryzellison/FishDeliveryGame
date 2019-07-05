@@ -54,7 +54,8 @@ public class DriveController : MonoBehaviour {
     
     public void FixedUpdate()
     {
-        rb.AddForce(-rb.velocity.magnitude * transform.up);
+        Debug.Log(rb.velocity.magnitude);
+        rb.AddForce(-rb.velocity.magnitude/10* transform.up,ForceMode.Acceleration);
             
         if(rb.velocity.magnitude < minVelocityThreshold)
         {
@@ -193,7 +194,15 @@ public class DriveController : MonoBehaviour {
         }
     }
 
-    void ModifySidewaysStiffness( WheelCollider wheel,float newStiffness)
+    public void ResetRotation()
+    {
+        transform.position += Vector3.up;
+        transform.rotation = Quaternion.identity;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
+    private void ModifySidewaysStiffness( WheelCollider wheel,float newStiffness)
     {
         
         WheelFrictionCurve sidewaysCurve= wheel.sidewaysFriction; // get the sideways friction curve of the wheel and mofidy that instead

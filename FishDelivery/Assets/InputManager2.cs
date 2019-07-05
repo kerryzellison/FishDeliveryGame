@@ -23,6 +23,8 @@ public class InputManager2 : MonoBehaviour
     string reverse;
     string jump;
     string shoot;
+
+    string DebugReset;
     // stick values
     float verticalVal;
 
@@ -58,6 +60,7 @@ public class InputManager2 : MonoBehaviour
         reverse = "Reverse"+playerNumber;
         jump = "Jump"+playerNumber;
         shoot = "Shoot"+playerNumber;
+        DebugReset = "DebugReset"+playerNumber;
 
         dc = GetComponent<DriveController>();
         //cc = GameObject.Find("Main Camera").GetComponent<CameraController>();
@@ -89,33 +92,18 @@ public class InputManager2 : MonoBehaviour
 // ******Car movement******
         verticalVal = Input.GetAxis(vertical);
         horizontalVal = Input.GetAxis(horizontal);
-        if(IsGrounded)
+        
+        //Steering
+        if (HasTiltedHorizontal)
         {
-            //Steering
-            if (IsDriving && HasTiltedHorizontal)
-            {
-                
-                dc.Steer(horizontalVal);
-                Debug.Log("steer");
-            }
-            else
-            {
-                Debug.Log("resetting steering");
-                dc.Steer(0);
-            }
-            
-            
-            //turning
-            if (!IsDriving && HasTiltedHorizontal)
-            {
-                dc.Turn(horizontalVal);
-            }
-            else
-            {
-                dc.ResetTurningStiffness();
-            }
+            dc.Steer(horizontalVal);
         }
-        else if(!IsGrounded &&  (HasTiltedHorizontal || HasTiltedVertical))
+        else
+        {
+            dc.Steer(0);
+        }
+            
+        if(!IsGrounded &&  (HasTiltedHorizontal || HasTiltedVertical))
         {
             //Debug.Log("air steer");
             dc.AerialSteer(horizontalVal, verticalVal);
@@ -173,6 +161,14 @@ public class InputManager2 : MonoBehaviour
            //Debug.Log("Jump");
            dc.Jump();
            HasJumped=true;
+        }
+
+//*****Abilities*****
+        if(Input.GetButtonDown(DebugReset))
+        {
+           //Debug.Log("Jump");
+           dc.ResetRotation();
+
         }
 
         //Check States
