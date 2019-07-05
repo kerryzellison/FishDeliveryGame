@@ -3,7 +3,12 @@ guid: 248a84989ef49e4409212cb5e7bab582
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TireMat
+    second: {fileID: 2100000, guid: 750db9a9c6ee38e4cb668cb7e835cd83, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

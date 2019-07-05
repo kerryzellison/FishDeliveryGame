@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c89a533d0bf1bac488acff048cd79b73
+guid: 512300ec2e5f0964b93db9569204f8f3
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: TireMat
-    second: {fileID: 2100000, guid: 750db9a9c6ee38e4cb668cb7e835cd83, type: 2}
+      name: Car_Material01
+    second: {fileID: 2100000, guid: b017813bda1409d4f855bd38d9630fb4, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: UV_MAP4.fw
+    second: {fileID: 2800000, guid: 4e50c4998b38faf4dacc4092cc6821c6, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
