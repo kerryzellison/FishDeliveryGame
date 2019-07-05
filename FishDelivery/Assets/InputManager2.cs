@@ -23,6 +23,8 @@ public class InputManager2 : MonoBehaviour
     string reverse;
     string jump;
     string shoot;
+
+    string DebugReset;
     // stick values
     float verticalVal;
 
@@ -58,6 +60,7 @@ public class InputManager2 : MonoBehaviour
         reverse = "Reverse"+playerNumber;
         jump = "Jump"+playerNumber;
         shoot = "Shoot"+playerNumber;
+        DebugReset = "DebugReset"+playerNumber;
 
         dc = GetComponent<DriveController>();
         //cc = GameObject.Find("Main Camera").GetComponent<CameraController>();
@@ -89,33 +92,18 @@ public class InputManager2 : MonoBehaviour
 // ******Car movement******
         verticalVal = Input.GetAxis(vertical);
         horizontalVal = Input.GetAxis(horizontal);
-        if(IsGrounded)
-        {
-            //Steering
-            if (IsDriving && HasTiltedHorizontal)
-            {
-                
-                dc.Steer(horizontalVal);
-                Debug.Log("steer");
-            }
-            else
-            {
-                Debug.Log("resetting steering");
-                dc.Steer(0);
-            }
-            
-            
-            //turning
-            if (!IsDriving && HasTiltedHorizontal)
-            {
-                dc.Turn(horizontalVal);
-            }
-            else
-            {
-                dc.ResetTurningStiffness();
-            }
+
+        //Steering
+        if (HasTiltedHorizontal)
+        {  
+            dc.Steer(horizontalVal);
         }
-        else if(!IsGrounded &&  (HasTiltedHorizontal || HasTiltedVertical))
+        else
+        {
+            dc.Steer(0);
+        }
+
+        if(!IsGrounded &&  (HasTiltedHorizontal || HasTiltedVertical))
         {
             //Debug.Log("air steer");
             dc.AerialSteer(horizontalVal, verticalVal);
@@ -175,13 +163,17 @@ public class InputManager2 : MonoBehaviour
            HasJumped=true;
         }
 
+//****Debug****
+        if(Input.GetButtonDown(DebugReset))
+        {
+            dc.resetRotation();
+        }
+
         //Check States
         IsGrounded = dc.CheckWheelsGrounded();
         HasJumped = !IsGrounded;
         HasTiltedHorizontal = SetStickBool(horizontalVal);
         HasTiltedVertical = SetStickBool(verticalVal);
-
-
     }        
     public void SetIsDriving(bool boolean)
     {

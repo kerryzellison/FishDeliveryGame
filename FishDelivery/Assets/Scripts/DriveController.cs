@@ -193,15 +193,22 @@ public class DriveController : MonoBehaviour {
         }
     }
 
-    void ModifySidewaysStiffness( WheelCollider wheel,float newStiffness)
+    public void resetRotation()
     {
-        
+        transform.position += Vector3.up;
+        transform.rotation = Quaternion.identity;
+        rb.velocity =Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
+    private void ModifySidewaysStiffness( WheelCollider wheel,float newStiffness)
+    {     
         WheelFrictionCurve sidewaysCurve= wheel.sidewaysFriction; // get the sideways friction curve of the wheel and mofidy that instead
         sidewaysCurve.stiffness = newStiffness;
         wheel.sidewaysFriction = sidewaysCurve;
-
-
     } 
+
+    
 
     private void ConfigureSubSteps( float speedThreshold, int stepsBelowThreshold, int stepsAboveThreshold)
     {
