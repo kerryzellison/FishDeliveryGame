@@ -96,6 +96,8 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  nextWP: 0
+  currentWaypoint: {fileID: 0}
 --- !u!1 &144646
 GameObject:
   m_ObjectHideFlags: 0
