@@ -18,7 +18,7 @@ public class ResourceSystem : MonoBehaviour
 
     void Start()
     {
-        uiScript = GameObject.Find("UI_Manager").GetComponent<UI>();
+        uiScript = GetComponent<UI>();
 
         uiScript.moneyText1.text = GetMoney().ToString() + "¥";
         uiScript.moneyText2.text = GetMoney().ToString() + "¥";

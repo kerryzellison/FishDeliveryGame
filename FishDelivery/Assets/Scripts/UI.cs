@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
-    private GameObject car;
+    public GameObject player;
     private RigidBodyInfo rigidBodyInf;
     private ResourceSystem resourceSystem;
 
@@ -27,9 +27,9 @@ public class UI : MonoBehaviour
 
     void Start()
     {
-            car = GameObject.Find("Wheel Collider Car");
-            resourceSystem = GameObject.Find("ResourceManager").GetComponent<ResourceSystem>();
-            rigidBodyInf = car.GetComponent<RigidBodyInfo>();
+            player = GameObject.Find("Wheel Collider Car");
+            resourceSystem = GetComponent<ResourceSystem>();
+            rigidBodyInf = player.GetComponent<RigidBodyInfo>();
             moneyText1.text = resourceSystem.GetMoney().ToString() + "¥";
 
         if (inGameHub)
@@ -46,7 +46,7 @@ public class UI : MonoBehaviour
 
     void Update()
     {
-        speed = (int)rigidBodyInf.speed * 3.6f;
+        speed = rigidBodyInf.speed * 3.6f;
         speed = (int)speed;
         speedText.text = speed.ToString() + " km/h";
 
