@@ -7,11 +7,11 @@ public class ResetPosition : MonoBehaviour
 {
     Vector3 lastWaypointPos;
     Quaternion lastWaypointRot;
-    public WaypointInfo _waypointInfo;
-    public TurnTheGameOn.ArrowWaypointer.WaypointController _wpController;
+    //public WaypointInfo _waypointInfo;
+    [HideInInspector] public TurnTheGameOn.ArrowWaypointer.WaypointController _wpController;
     public Transform currentRespawn;
     public TurnTheGameOn.ArrowWaypointer.Waypoint _waypoint;
-    public TurnTheGameOn.ArrowWaypointer.WaypointController.WaypointComponents[] currentRespawnArr;
+    [HideInInspector] public TurnTheGameOn.ArrowWaypointer.WaypointController.WaypointComponents[] currentRespawnArr;
     int waypointIterator;
 
     private bool hitFirstWaypoint, doOnce = false;
@@ -23,7 +23,7 @@ public class ResetPosition : MonoBehaviour
         lastWaypointRot = transform.rotation;
         //currentTarget = _wpController.currentWaypoint;
         currentRespawnArr = _wpController.waypointList;
-        waypointIterator = 0;
+        doOnce = false;
         hitFirstWaypoint = false;
     }
 
@@ -43,7 +43,6 @@ public class ResetPosition : MonoBehaviour
         if(currentRespawnArr[waypointIterator].waypoint.enabled) {
             _waypoint = currentRespawnArr[waypointIterator].waypoint;
         }
-        // Iterate through currentRespawnArr[] to find previous waypoint from currentwaypoint. 
         
         if(Input.GetKey(KeyCode.H) && hitFirstWaypoint/* && currentTarget.position != _wpController.currentWaypoint.position */) {
             transform.position = _waypoint.transform.position;
@@ -51,13 +50,20 @@ public class ResetPosition : MonoBehaviour
             Debug.Log("Reset pressed " + "Current target is " + _waypoint.name + " waypointIterator = " + waypointIterator);
             
         }
+        else if(!hitFirstWaypoint && Input.GetKeyDown(KeyCode.H)) {
+            transform.position = lastWaypointPos;
+            transform.rotation = lastWaypointRot;
+        }
     }
 
     void OnTriggerEnter(Collider other) {
         hitFirstWaypoint = true;
 
         
-        // Need to minus 1 to iterator, since it resets 1 forward. 
+        // First time good in same level, second time resets 1-2 waypoints behind preferred.
+        // Switches between 1-2 in other playthroughs.
+        // Sometimes hitFirstWaypoint not triggered? 
+        // Maybe other.enabled not good, since it might turn off before getting to statement
         if(/* other != null &&  */other.name.Contains("Waypoint") && other.enabled) {
                 waypointIterator++;
              if(!doOnce) {
