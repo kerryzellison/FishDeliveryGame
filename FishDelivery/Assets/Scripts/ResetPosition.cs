@@ -14,6 +14,8 @@ public class ResetPosition : MonoBehaviour
     public TurnTheGameOn.ArrowWaypointer.WaypointController.WaypointComponents[] currentRespawnArr;
     int waypointIterator;
 
+    private bool hitFirstWaypoint, doOnce = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,26 +23,50 @@ public class ResetPosition : MonoBehaviour
         lastWaypointRot = transform.rotation;
         //currentTarget = _wpController.currentWaypoint;
         currentRespawnArr = _wpController.waypointList;
-
+        waypointIterator = 0;
+        hitFirstWaypoint = false;
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        if(_waypointInfo.waypointDisabled) {
+        /* if(_waypointInfo.waypointDisabled) {
             lastWaypointPos = _waypointInfo.waypointPos;
             lastWaypointRot = _waypointInfo.waypointRot;
             _waypointInfo.waypointDisabled = false;
-            Debug.Log(lastWaypointPos + "" + "Waypoint location loaded");
+            Debug.Log(lastWaypointPos + " " + "Waypoint location loaded");
             _waypoint = currentRespawnArr[waypointIterator].waypoint;
             
+        } */
+
+        if(currentRespawnArr[waypointIterator].waypoint.enabled) {
+            _waypoint = currentRespawnArr[waypointIterator].waypoint;
         }
         // Iterate through currentRespawnArr[] to find previous waypoint from currentwaypoint. 
         
-        if(Input.GetKey(KeyCode.H )/* && currentTarget.position != _wpController.currentWaypoint.position */) {
-            //transform.position = currentTarget.position;
-            transform.rotation = lastWaypointRot;
-            Debug.Log("Reset pressed");
+        if(Input.GetKey(KeyCode.H) && hitFirstWaypoint/* && currentTarget.position != _wpController.currentWaypoint.position */) {
+            transform.position = _waypoint.transform.position;
+            transform.rotation = _waypoint.transform.rotation;
+            Debug.Log("Reset pressed " + "Current target is " + _waypoint.name + " waypointIterator = " + waypointIterator);
+            
+        }
+    }
+
+    void OnTriggerEnter(Collider other) {
+        hitFirstWaypoint = true;
+
+        
+        // Need to minus 1 to iterator, since it resets 1 forward. 
+        if(/* other != null &&  */other.name.Contains("Waypoint") && other.enabled) {
+                waypointIterator++;
+             if(!doOnce) {
+            waypointIterator = 0;
+            doOnce = true;
+            } 
+            
+            Debug.Log("Waypoint hit" + _waypoint.name);
+            
         }
     }
 
