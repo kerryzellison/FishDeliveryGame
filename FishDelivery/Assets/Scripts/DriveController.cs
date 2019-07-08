@@ -54,7 +54,6 @@ public class DriveController : MonoBehaviour {
     
     public void FixedUpdate()
     {
-        Debug.Log(rb.velocity.magnitude);
         rb.AddForce(-rb.velocity.magnitude/10* transform.up,ForceMode.Acceleration);
             
         if(rb.velocity.magnitude < minVelocityThreshold)
