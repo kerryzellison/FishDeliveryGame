@@ -3,44 +3,44 @@
 	using UnityEngine;
 	using UnityEngine.Events;
 
-	[ExecuteInEditMode]
-	public class WaypointController : MonoBehaviour
-	{
+    [ExecuteInEditMode]
+    public class WaypointController : MonoBehaviour
+    {
 
-		public enum Switch { Off, On }
+        public enum Switch { Off, On }
 
-		[System.Serializable]
-		public class WaypointComponents
-		{
-			public string waypointName = "Waypoint Name";
-			public Waypoint waypoint;
-			public UnityEvent waypointEvent;
-		}
+        [System.Serializable]
+        public class WaypointComponents
+        {
+            public string waypointName = "Waypoint Name";
+            public Waypoint waypoint;
+            public UnityEvent waypointEvent;
+        }
 
 
-		public Transform player;
-		public Switch configureMode;
-		[Range(0.0001f,20)]public float arrowTargetSmooth; // controls how fast the arrow should smoothly target the next waypoint
-		[Range(1,100)]public int TotalWaypoints; // controls how many Waypoints should be used
-		public WaypointComponents[] waypointList;
-		private GameObject newWaypoint;
-		private string newWaypointName;
-		[HideInInspector] public int nextWP;
-		private Transform waypointArrow; //Transform used to reference the Waypoint Arrow
-		[HideInInspector] public Transform currentWaypoint; //Transforms used to identify the Waypoint Arrow's target
-		private Transform arrowTarget;
+        public Transform player;
+        public Switch configureMode;
+        [Range(0.0001f, 20)] public float arrowTargetSmooth; // controls how fast the arrow should smoothly target the next waypoint
+        [HideInInspector] [Range(1, 100)] public int TotalWaypoints; // controls how many Waypoints should be used
+        public WaypointComponents[] waypointList;
+        private GameObject newWaypoint;
+        private string newWaypointName;
+        [HideInInspector] public int nextWP;
+        private Transform waypointArrow; //Transform used to reference the Waypoint Arrow
+        [HideInInspector] public Transform currentWaypoint; //Transforms used to identify the Waypoint Arrow's target
+        private Transform arrowTarget;
 
-		void Start () {
-			if(Application.isPlaying){
-				GameObject newObject = new GameObject();
-				newObject.name = "Arrow Target";
-				newObject.transform.parent = gameObject.transform;
-				arrowTarget = newObject.transform;
-				newObject = null;
-			}
-			nextWP = 0;
-			ChangeTarget ();
-		}
+        void Start() {
+            if (Application.isPlaying) {
+                GameObject newObject = new GameObject();
+                newObject.name = "Arrow Target";
+                newObject.transform.parent = gameObject.transform;
+                arrowTarget = newObject.transform;
+                newObject = null;
+            }
+            nextWP = 0;
+            ChangeTarget();
+        }
 
         [ContextMenu("Reset")] public void Reset()
         {
@@ -48,31 +48,31 @@
             ChangeTarget();
         }
 
-        void Update () {
-			if (configureMode == Switch.Off) {
-				TotalWaypoints = waypointList.Length;
-			}
-			//Check if the script is being executed in the Unity Editor
-			#if UNITY_EDITOR
-			if (configureMode == Switch.On) {
-				CalculateWaypoints ();
-			}
-			#endif
-			//Keep the Waypoint Arrow pointed at the Current Waypoint
-			if (arrowTarget != null) {
-				arrowTarget.localPosition = Vector3.Lerp (arrowTarget.localPosition, currentWaypoint.localPosition, arrowTargetSmooth * Time.deltaTime);
-				arrowTarget.localRotation = Quaternion.Lerp (arrowTarget.localRotation, currentWaypoint.localRotation, arrowTargetSmooth * Time.deltaTime);
-			} else {
-				arrowTarget = currentWaypoint;
-			}
-			if (waypointArrow == null)
-				FindArrow ();
-			waypointArrow.LookAt(arrowTarget);
-		}
+        void Update() {
+            if (configureMode == Switch.Off) {
+                TotalWaypoints = waypointList.Length;
+            }
+            //Check if the script is being executed in the Unity Editor
+#if UNITY_EDITOR
+            if (configureMode == Switch.On) {
+                CalculateWaypoints();
+            }
+#endif
+            //Keep the Waypoint Arrow pointed at the Current Waypoint
+            if (arrowTarget != null) {
+                arrowTarget.localPosition = Vector3.Lerp(arrowTarget.localPosition, currentWaypoint.localPosition, arrowTargetSmooth * Time.deltaTime);
+                arrowTarget.localRotation = Quaternion.Lerp(arrowTarget.localRotation, currentWaypoint.localRotation, arrowTargetSmooth * Time.deltaTime);
+            } else {
+                arrowTarget = currentWaypoint;
+            }
+            if (waypointArrow == null)
+                FindArrow();
+            waypointArrow.LookAt(arrowTarget);
+        }
 
-		public void WaypointEvent(int waypointEvent){
-			waypointList [waypointEvent - 1].waypointEvent.Invoke ();
-		}
+        public void WaypointEvent(int waypointEvent) {
+            waypointList[waypointEvent - 1].waypointEvent.Invoke();
+        }
 
 		public void ChangeTarget(){
 			int check = nextWP;
@@ -83,15 +83,12 @@
 				currentWaypoint = waypointList [nextWP].waypoint.transform;
 				currentWaypoint.gameObject.SetActive (true);
 				nextWP += 1;
-			}
-            else
-            {
-                WaypointEvent(check);
             }
 			if (check == TotalWaypoints) {
 				Destroy (waypointArrow.gameObject);
 				Destroy (gameObject);
             }
+            //WaypointEvent(check);
             Debug.Log("Change Target " + check);
         }
 
