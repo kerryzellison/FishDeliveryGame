@@ -10,13 +10,20 @@ public class ResourceSystem : MonoBehaviour
     private int moneyInt = 0;
     private readonly string moneyPath = "money1";
 
+    private UI uiScript;
+
     // UI counters for displaying resources
-    public Text moneyCounterText;
+    // public Text moneyCounterText;
     // public Text xpCounterText;
 
     void Start()
     {
-        if (moneyCounterText != null)
+        uiScript = GameObject.Find("UI_Manager").GetComponent<UI>();
+
+        uiScript.moneyText1.text = GetMoney().ToString() + "¥";
+        uiScript.moneyText2.text = GetMoney().ToString() + "¥";
+
+        /* if (moneyCounterText != null)
         {
             // Set UI counters:
             moneyCounterText.text = GetMoney().ToString() + "¥";
@@ -25,7 +32,7 @@ public class ResourceSystem : MonoBehaviour
         else
         {
             Debug.Log("Resource System Error! - Please attach Text objects in inspector!");
-        }
+        } */
 
 
         if (PlayerPrefs.GetInt(moneyPath) != 0)
@@ -59,7 +66,8 @@ public class ResourceSystem : MonoBehaviour
         if (amount >= 0)
         {
             PlayerPrefs.SetInt(moneyPath, amount);
-            moneyCounterText.text = amount + "¥";
+            uiScript.moneyText1.text = amount + "¥";
+            uiScript.moneyText2.text = amount + "¥";
             Debug.Log("Money now: " + amount);
         } else
         {
@@ -73,7 +81,8 @@ public class ResourceSystem : MonoBehaviour
         if (amount >= 0)
         {
             PlayerPrefs.SetInt(moneyPath, amount);
-            moneyCounterText.text = amount + "¥";
+            uiScript.moneyText1.text = amount + "¥";
+            uiScript.moneyText2.text = amount + "¥";
         } else
         {
             Debug.Log("Failed to set funds - most be more than 0!");
