@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject player;
     private RigidBodyInfo rigidBodyInf;
     private ResourceSystem resourceSystem;
@@ -27,10 +28,10 @@ public class UI : MonoBehaviour
 
     void Start()
     {
-            player = GameObject.Find("Wheel Collider Car");
-            resourceSystem = GetComponent<ResourceSystem>();
-            rigidBodyInf = player.GetComponent<RigidBodyInfo>();
-            moneyText1.text = resourceSystem.GetMoney().ToString() + "¥";
+        player = GameObject.FindGameObjectWithTag("Player");
+        resourceSystem = GetComponent<ResourceSystem>();
+        rigidBodyInf = player.GetComponent<RigidBodyInfo>();
+        moneyText1.text = resourceSystem.GetMoney().ToString() + "¥";
 
         if (inGameHub)
         {
