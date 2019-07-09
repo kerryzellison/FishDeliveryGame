@@ -24,6 +24,8 @@ public class InputManager2 : MonoBehaviour
     string jump;
     string shoot;
 
+    string nitro;
+
     string DebugReset;
     // stick values
     float verticalVal;
@@ -48,6 +50,8 @@ public class InputManager2 : MonoBehaviour
     DriveController dc;
     CameraController cc;
 
+    GroundBoost gb;
+
     void Start()
     {
         //set input to playernumber
@@ -61,9 +65,11 @@ public class InputManager2 : MonoBehaviour
         jump = "Jump"+playerNumber;
         shoot = "Shoot"+playerNumber;
         DebugReset = "DebugReset"+playerNumber;
+        nitro = "Nitro"+playerNumber;
 
         dc = GetComponent<DriveController>();
         //cc = GameObject.Find("Main Camera").GetComponent<CameraController>();
+        gb = GetComponent<GroundBoost>();
     }
 
     // Update is called once per frame
@@ -169,6 +175,11 @@ public class InputManager2 : MonoBehaviour
            //Debug.Log("Jump");
            dc.ResetRotation();
 
+        }
+
+            
+        if(Input.GetButtonDown(nitro)) {
+            gb.nitroBoost();
         }
 
         //Check States
