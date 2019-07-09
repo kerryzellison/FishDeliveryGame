@@ -8,14 +8,16 @@ public class WaterSurfaceControl : MonoBehaviour
 
     public GameObject WaterObj;
     Mesh mesh;
-    List< Vector3> vertices;
+    Vector3[] vertices;
+    Vector3[] initialVerts;
     Vector3 normal;
 
     // Start is called before the first frame update
     void Start()
     {
         mesh = WaterObj.GetComponent<MeshFilter>().mesh;
-        vertices = GetTopCornerVertices(mesh);
+        vertices = mesh.vertices;
+        initialVerts = vertices;
     }
 
     // Update is called once per frame
@@ -23,11 +25,21 @@ public class WaterSurfaceControl : MonoBehaviour
     {
         normal = CalculateWaterNormal(waterPlane.transform.position, transform.position);
         
-        for (int i = 0; i < vertices.Count; i++)
+        for (int i = 0; i < vertices.Length; i++)
         {
-            //vertices[i].y;
-        }
 
+            
+            if(vertices[i].y != -0.5)
+            {
+                
+                //vertices[i] = transform.TransformPoint(initialVerts[i]);//+new Vector3(1,1,1);
+                //vertices[i] = ProjectVertexToPlane(vertices[i], transform.TransformDirection(normal));
+                //vertices[i] = WaterObj.transform.InverseTransformPoint( vertices[i]);//transform.InverseTransformPoint(vertices[i]);
+            }
+
+        }
+        mesh.vertices = vertices;
+        //Debug.Log(initialVerts[5]);
     }
 
     private Vector3 CalculateWaterNormal(Vector3 from, Vector3 to)
@@ -37,22 +49,8 @@ public class WaterSurfaceControl : MonoBehaviour
         return normal;
     }
 
-    private List<Vector3> GetTopCornerVertices( Mesh mesh)
+    private Vector3 ProjectVertexToPlane(Vector3 vert, Vector3 normal)
     {
-        Vector3[] vertices = mesh.vertices;
-
-        List< Vector3> topVerts= new List<Vector3>();
-
-        for (int i = 0; i < vertices.Length; i++)
-        {
-            if (vertices[i].y == 0.5)
-            {
-                topVerts.Add(transform.TransformPoint (vertices[i]));   
-            }
-        }
-
-
-        return topVerts;
-
+        return Vector3.ProjectOnPlane(vert, normal);
     }
 }
