@@ -5,13 +5,20 @@ using UnityEngine;
 public class EnginePitch : MonoBehaviour
 {
     public AudioSource engineSound;
-    private GameObject car;
+    public GameObject car;
     private RigidBodyInfo rigidBodyInf;
 
     void Start()
     {
-        car = GameObject.Find("Wheel Collider Car");
-        rigidBodyInf = car.GetComponent<RigidBodyInfo>();
+        if (car != null)
+        {
+            rigidBodyInf = car.GetComponent<RigidBodyInfo>();
+        }
+        else
+        {
+            Debug.Log("Car GameObject not attached to EnginePitch script in SoundManager!");
+        }
+        
     }
 
     void Update()
