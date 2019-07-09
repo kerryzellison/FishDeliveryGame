@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class WaterSurfaceControl : MonoBehaviour
 {
-    public GameObject waterPlane;
-
+    public GameObject waterLevel;
+    public GameObject top;
     public GameObject WaterObj;
+    Vector3 surfacePos;
+
+    Vector3 topPos;
+    Vector3 ballPos;
+    
     Mesh mesh;
     Vector3[] vertices;
     Vector3[] initialVerts;
@@ -23,7 +28,12 @@ public class WaterSurfaceControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        normal = CalculateWaterNormal(waterPlane.transform.position, transform.position);
+        topPos = WaterObj.transform.InverseTransformPoint(top.transform.position);
+        surfacePos = WaterObj.transform.InverseTransformPoint(waterLevel.transform.position);
+        ballPos = WaterObj.transform.InverseTransformPoint(transform.position);
+        normal = CalculateWaterNormal(topPos, ballPos);
+
+        Debug.DrawRay(surfacePos,normal, Color.red, 1);
         
         for (int i = 0; i < vertices.Length; i++)
         {
@@ -31,26 +41,37 @@ public class WaterSurfaceControl : MonoBehaviour
             
             if(vertices[i].y != -0.5)
             {
+                vertices[i] = initialVerts[i];//+new Vector3(1,1,1);
+
+                Vector3 u = ((vertices[i]+ new Vector3(0,1,0))-vertices[i]);
+                Vector3 w = vertices[i] - surfacePos;
+                Debug.DrawRay(vertices[i], w, Color.blue,1);
+                float scalar = (Vector3.Dot(-normal, w))/Vector3.Dot(normal,u);
+                vertices[i] += scalar * u;
                 
-                //vertices[i] = transform.TransformPoint(initialVerts[i]);//+new Vector3(1,1,1);
-                //vertices[i] = ProjectVertexToPlane(vertices[i], transform.TransformDirection(normal));
-                //vertices[i] = WaterObj.transform.InverseTransformPoint( vertices[i]);//transform.InverseTransformPoint(vertices[i]);
+                if (vertices[i].y > topPos.y)
+                {
+                    vertices[i].y = topPos.y;
+                }
+                if (vertices[i].y < -0.5)
+                {
+                    vertices[i].y = -0.49f;
+                }
             }
 
         }
         mesh.vertices = vertices;
-        //Debug.Log(initialVerts[5]);
     }
 
     private Vector3 CalculateWaterNormal(Vector3 from, Vector3 to)
     {
         Vector3 normal = (from - to).normalized;
-        waterPlane.transform.up = normal;
+        waterLevel.transform.up = normal;
         return normal;
     }
 
     private Vector3 ProjectVertexToPlane(Vector3 vert, Vector3 normal)
     {
-        return Vector3.ProjectOnPlane(vert, normal);
+        return Vector3.zero;
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 168708309}
   - component: {fileID: 168708308}
   - component: {fileID: 168708307}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,8 +89,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000002, y: 5.574107, z: 1.0000001}
+  m_Center: {x: 0.0000000015730085, y: -2.3112078, z: -0.024360564}
 --- !u!1 &303514699
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 303514702}
   - component: {fileID: 303514701}
   - component: {fileID: 303514700}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Water Cage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303514699}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.378, z: 0}
   m_LocalScale: {x: 1.1707226, y: 0.7783, z: 1.5792029}
   m_Children:
   - {fileID: 530041296}
@@ -193,8 +193,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.1365945, z: 0.9999998}
-  m_Center: {x: 0, y: 0.43170318, z: 0}
+  m_Size: {x: 1, y: 0.6800712, z: 0.9999999}
+  m_Center: {x: -0, y: 0.703442, z: -0}
 --- !u!65 &303514704
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -206,8 +206,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 0.16528875, z: 1.0000002}
-  m_Center: {x: 0, y: -0.4467322, z: 0}
+  m_Size: {x: 1.0000002, y: 0.415652, z: 1.0000002}
+  m_Center: {x: 0, y: -0.571914, z: 0}
 --- !u!65 &303514703
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -219,8 +219,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1, z: 0.04340393}
-  m_Center: {x: 3.96226e-15, y: 0, z: -0.47829798}
+  m_Size: {x: 1.0000002, y: 1, z: 0.8550546}
+  m_Center: {x: -0, y: 0, z: -0.88412356}
 --- !u!65 &303514702
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -232,8 +232,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1, z: 0.053695686}
-  m_Center: {x: -9.85831e-15, y: 0, z: 0.47315222}
+  m_Size: {x: 1.0000002, y: 1, z: 0.50597095}
+  m_Center: {x: 0, y: 0, z: 0.69929}
 --- !u!65 &303514701
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -245,8 +245,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.07259106, y: 1, z: 1.0000002}
-  m_Center: {x: 0.46370485, y: 0, z: -6.4206156e-16}
+  m_Size: {x: 0.528786, y: 1, z: 1.0000002}
+  m_Center: {x: 0.69180256, y: 0, z: 0}
 --- !u!65 &303514700
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -258,8 +258,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.070759274, y: 1, z: 1.0000002}
-  m_Center: {x: -0.4646206, y: 0, z: 6.344442e-16}
+  m_Size: {x: 0.46123695, y: 1, z: 1.0000002}
+  m_Center: {x: -0.65985906, y: 0, z: 0}
 --- !u!1 &530041295
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 530041299}
   - component: {fileID: 530041298}
   - component: {fileID: 530041297}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,8 +349,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000002, y: 4.9719133, z: 1.0000002}
+  m_Center: {x: 0, y: -2.050738, z: -0.03705227}
 --- !u!1 &962158285
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 962158288}
   - component: {fileID: 962158287}
   - component: {fileID: 962158286}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: steep ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 1006114969}
   - component: {fileID: 1006114968}
   - component: {fileID: 1006114967}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,8 +531,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000002, y: 6.418425, z: 1.0000001}
+  m_Center: {x: -0.0000000018633677, y: -2.7378304, z: 0.028857239}
 --- !u!1 &1177145431
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 1177145434}
   - component: {fileID: 1177145433}
   - component: {fileID: 1177145432}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: steep ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 1558667319}
   - component: {fileID: 1558667318}
   - component: {fileID: 1558667317}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: steep ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 1561219429}
   - component: {fileID: 1561219428}
   - component: {fileID: 1561219427}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -804,8 +804,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000002, y: 4.6139617, z: 1.0000002}
+  m_Center: {x: 0, y: -1.8659194, z: 0.03371298}
 --- !u!1 &1606020872
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 1606020873}
   - component: {fileID: 1606020877}
   - component: {fileID: 7523089376831784241}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +835,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606020872}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.141, z: 0}
+  m_LocalPosition: {x: 0, y: -0.23700026, z: 0}
   m_LocalScale: {x: 0.18362011, y: 0.18362, z: 0.1836201}
   m_Children: []
   m_Father: {fileID: 7093820002133935974}
@@ -927,7 +927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f5ce0f5533914482f739cfe371f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterPlane: {fileID: 4215031715679970067}
+  waterLevel: {fileID: 4215031715679970067}
+  top: {fileID: 8824456855380279944}
   WaterObj: {fileID: 3846307647712263242}
 --- !u!1 &2085133908
 GameObject:
@@ -941,7 +942,7 @@ GameObject:
   - component: {fileID: 2085133911}
   - component: {fileID: 2085133910}
   - component: {fileID: 2085133909}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: steep ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1031,7 +1032,7 @@ GameObject:
   - component: {fileID: 7093820002133935974}
   - component: {fileID: 4892265544277104974}
   - component: {fileID: 7636664800759984706}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tank Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1116,7 +1117,7 @@ GameObject:
   - component: {fileID: 4896650254070016988}
   - component: {fileID: 4413778617930919155}
   - component: {fileID: 6519940968211195126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1135,6 +1136,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6376234983904603979}
+  - {fileID: 8246160967325989196}
   - {fileID: 5775472225273224125}
   m_Father: {fileID: 7093820002133935974}
   m_RootOrder: 0
@@ -1260,7 +1262,7 @@ GameObject:
   - component: {fileID: 2025100209066398962}
   - component: {fileID: 8978510784631485663}
   - component: {fileID: 4711945916685099586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left Tire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1336,7 +1338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3327023298594205189}
   - component: {fileID: 3327023298594205188}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BackRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1398,7 +1400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3327023299400406386}
   - component: {fileID: 3327023299400406397}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: FrontLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1459,7 +1461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3327023299664163092}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1497,7 +1499,7 @@ GameObject:
   - component: {fileID: 1522370423}
   - component: {fileID: 3327023300140621389}
   - component: {fileID: 3327023300140621378}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Wheel Collider Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,7 +1619,7 @@ GameObject:
   - component: {fileID: 3327023300275273787}
   - component: {fileID: 3327023300275273784}
   - component: {fileID: 3327023300275273785}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1707,7 +1709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3327023300311871558}
   - component: {fileID: 3327023300311871553}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BackLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1770,7 +1772,7 @@ GameObject:
   - component: {fileID: 3327023300384486743}
   - component: {fileID: 3327023300384486740}
   - component: {fileID: 3327023300384486741}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1852,7 +1854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3327023300399334513}
   - component: {fileID: 3327023300399334512}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: FrontRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1916,7 +1918,7 @@ GameObject:
   - component: {fileID: 6304225958196906258}
   - component: {fileID: 2964230201054812913}
   - component: {fileID: 1871553396553829073}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2007,7 +2009,7 @@ GameObject:
   - component: {fileID: 5895576788261072456}
   - component: {fileID: 3918000698499316709}
   - component: {fileID: 3178592861207473720}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Surface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2026,7 +2028,7 @@ Transform:
   m_LocalScale: {x: 1.1707212, y: 0.01, z: 1.5792}
   m_Children: []
   m_Father: {fileID: 333679558276665406}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5895576788261072456
 MeshFilter:
@@ -2097,7 +2099,7 @@ GameObject:
   - component: {fileID: 4388285989550740386}
   - component: {fileID: 2653204415626620633}
   - component: {fileID: 6562534337667687734}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightTire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2174,7 +2176,7 @@ GameObject:
   - component: {fileID: 3534368299210329457}
   - component: {fileID: 5226211561034160834}
   - component: {fileID: 8497063905833306003}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left Tire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2251,7 +2253,7 @@ GameObject:
   - component: {fileID: 4956653321130286145}
   - component: {fileID: 1679314608786154833}
   - component: {fileID: 5340145513863665179}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightTire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2317,6 +2319,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &8824456855380279944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8246160967325989196}
+  m_Layer: 0
+  m_Name: Glass Top
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8246160967325989196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824456855380279944}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.702, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 333679558276665406}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3688425332742623442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2328,6 +2360,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: KeiTruck
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c6b9f93b29d07d349a236f6a5bd47bcd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -7906478321998018172, guid: c6b9f93b29d07d349a236f6a5bd47bcd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -2145812570539794233, guid: c6b9f93b29d07d349a236f6a5bd47bcd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c6b9f93b29d07d349a236f6a5bd47bcd,
         type: 3}
@@ -2384,6 +2431,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6581041025168474491, guid: c6b9f93b29d07d349a236f6a5bd47bcd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 330708324486205603, guid: c6b9f93b29d07d349a236f6a5bd47bcd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8368784326033652824, guid: c6b9f93b29d07d349a236f6a5bd47bcd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -1049242078269459344, guid: c6b9f93b29d07d349a236f6a5bd47bcd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -32130022435814926, guid: c6b9f93b29d07d349a236f6a5bd47bcd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292535884062368016, guid: c6b9f93b29d07d349a236f6a5bd47bcd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b9f93b29d07d349a236f6a5bd47bcd, type: 3}
 --- !u!4 &8526826484855520200 stripped
@@ -2402,6 +2479,10 @@ PrefabInstance:
     - target: {fileID: 100002, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
       propertyPath: m_Name
       value: Waypoint Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2458,6 +2539,10 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
       propertyPath: m_CastShadows
