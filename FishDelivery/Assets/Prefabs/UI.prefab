@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 532579832035113220}
   - component: {fileID: 532579832035113221}
   - component: {fileID: 532579832035113219}
+  - component: {fileID: 3112615761040771501}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -809,6 +810,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2226901e0d327dc4a9424024d4bda382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3112615761040771501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532579832035113222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 500bad4c958db9546b3ec3686a98b506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeMenu: {fileID: 1942697514608502950}
+  upgrades:
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
 --- !u!1 &532579832085559955
 GameObject:
   m_ObjectHideFlags: 0

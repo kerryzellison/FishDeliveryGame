@@ -927,7 +927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f5ce0f5533914482f739cfe371f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterPlane: {fileID: 4215031715679970067}
+  waterLevel: {fileID: 0}
+  top: {fileID: 0}
   WaterObj: {fileID: 3846307647712263242}
 --- !u!1 &2085133908
 GameObject:
@@ -1336,7 +1337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3327023298594205189}
   - component: {fileID: 3327023298594205188}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: BackRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1398,7 +1399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3327023299400406386}
   - component: {fileID: 3327023299400406397}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FrontLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1459,7 +1460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3327023299664163092}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1497,10 +1498,9 @@ GameObject:
   - component: {fileID: 1522370423}
   - component: {fileID: 3327023300140621389}
   - component: {fileID: 3327023300140621378}
-  - component: {fileID: 2902676876710155512}
   - component: {fileID: 1326444264297768998}
-  m_Layer: 10
-  m_Name: Wheel Collider Car
+  m_Layer: 0
+  m_Name: Player Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1608,40 +1608,6 @@ MonoBehaviour:
   jumpForce: 10
   maxSteeringAngle: 20
   minVelocityThreshold: 0.1
-  tempDrag: 0
---- !u!114 &2902676876710155512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3327023300140621377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500bad4c958db9546b3ec3686a98b506, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgrades:
-  - purchased: 0
-    price: 0
-  - purchased: 0
-    price: 0
-  - purchased: 0
-    price: 0
-  - purchased: 0
-    price: 0
-  - purchased: 0
-    price: 0
-  - purchased: 0
-    price: 0
-  - purchased: 0
-    price: 0
-  - purchased: 0
-    price: 0
-  - purchased: 0
-    price: 0
-  - purchased: 0
-    price: 0
 --- !u!65 &1326444264297768998
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1667,7 +1633,7 @@ GameObject:
   - component: {fileID: 3327023300275273787}
   - component: {fileID: 3327023300275273784}
   - component: {fileID: 3327023300275273785}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1757,7 +1723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3327023300311871558}
   - component: {fileID: 3327023300311871553}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: BackLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1820,7 +1786,7 @@ GameObject:
   - component: {fileID: 3327023300384486743}
   - component: {fileID: 3327023300384486740}
   - component: {fileID: 3327023300384486741}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1902,7 +1868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3327023300399334513}
   - component: {fileID: 3327023300399334512}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FrontRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2459,11 +2425,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
       propertyPath: m_LocalRotation.x
