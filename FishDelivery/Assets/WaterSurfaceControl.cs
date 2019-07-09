@@ -32,7 +32,7 @@ public class WaterSurfaceControl : MonoBehaviour
             if(vertices[i].y != -0.5)
             {
                 
-                vertices[i] = transform.TransformPoint(initialVerts[i]);//+new Vector3(1,1,1);
+                //vertices[i] = transform.TransformPoint(initialVerts[i]);//+new Vector3(1,1,1);
                 //vertices[i] = ProjectVertexToPlane(vertices[i], transform.TransformDirection(normal));
                 //vertices[i] = WaterObj.transform.InverseTransformPoint( vertices[i]);//transform.InverseTransformPoint(vertices[i]);
             }
