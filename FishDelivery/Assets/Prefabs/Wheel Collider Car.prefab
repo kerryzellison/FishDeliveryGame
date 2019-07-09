@@ -927,6 +927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f5ce0f5533914482f739cfe371f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splashFX: {fileID: 1709563843766708908, guid: 6f2f6a9fa2fec74469743959c3d5181a,
+    type: 3}
   waterLevel: {fileID: 4215031715679970067}
   top: {fileID: 8824456855380279944}
   WaterObj: {fileID: 3846307647712263242}
@@ -1601,12 +1603,14 @@ MonoBehaviour:
   maxMotorTorque: 1700
   brakeTorque: 1000
   brakeDrag: 1
+  freezeDrag: 0
   maxReverseTorque: 750
   maxTurnTorque: 300
   aerialSteerTorque: 5
   jumpForce: 10
   maxSteeringAngle: 20
   minVelocityThreshold: 0.1
+  tempDrag: 0
 --- !u!1 &3327023300275273791
 GameObject:
   m_ObjectHideFlags: 0

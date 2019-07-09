@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class WaterSurfaceControl : MonoBehaviour
 {
+
+    public GameObject splashFX;
+
+    List<GameObject> splashObjs = new List<GameObject>(); 
+
     public GameObject waterLevel;
     public GameObject top;
     public GameObject WaterObj;
@@ -52,6 +57,9 @@ public class WaterSurfaceControl : MonoBehaviour
                 if (vertices[i].y > topPos.y)
                 {
                     vertices[i].y = topPos.y;
+
+                    //SplashWater(vertices[i], topPos-  vertices[i]);
+                    LowerWaterLevel();
                 }
                 if (vertices[i].y < -0.5)
                 {
@@ -73,5 +81,31 @@ public class WaterSurfaceControl : MonoBehaviour
     private Vector3 ProjectVertexToPlane(Vector3 vert, Vector3 normal)
     {
         return Vector3.zero;
+    }
+
+    private void SplashWater(Vector3 pos, Vector3 dir)
+    {
+
+        pos = transform.TransformPoint(pos);
+        
+        if (splashObjs.Count < 2)
+        {
+            GameObject newSplash = Instantiate(splashFX, pos, Quaternion.identity,WaterObj.transform);
+            newSplash.transform.up = dir;
+            newSplash.name = "Splash FX";
+                                Debug.Log("Splash Water");
+                               // Debug.Break();
+            splashObjs.Add(newSplash);
+
+
+        }
+        
+    }
+
+    private void LowerWaterLevel()
+    {
+        waterLevel.transform.position += -waterLevel.transform.up *Time.deltaTime;
+        Debug.DrawRay(waterLevel.transform.position, waterLevel.transform.up,Color.red,1);
+        Debug.Log("Splash Water");
     }
 }
