@@ -1497,6 +1497,8 @@ GameObject:
   - component: {fileID: 1522370423}
   - component: {fileID: 3327023300140621389}
   - component: {fileID: 3327023300140621378}
+  - component: {fileID: 2902676876710155512}
+  - component: {fileID: 1326444264297768998}
   m_Layer: 10
   m_Name: Wheel Collider Car
   m_TagString: Untagged
@@ -1599,12 +1601,60 @@ MonoBehaviour:
   maxMotorTorque: 1700
   brakeTorque: 1000
   brakeDrag: 1
+  freezeDrag: 0
   maxReverseTorque: 750
   maxTurnTorque: 300
   aerialSteerTorque: 5
   jumpForce: 10
   maxSteeringAngle: 20
   minVelocityThreshold: 0.1
+  tempDrag: 0
+--- !u!114 &2902676876710155512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327023300140621377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 500bad4c958db9546b3ec3686a98b506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrades:
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+  - purchased: 0
+    price: 0
+--- !u!65 &1326444264297768998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327023300140621377}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.4074051, z: 3.058825}
+  m_Center: {x: -4.440892e-15, y: 0.67350686, z: 0.13830476}
 --- !u!1 &3327023300275273791
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ public class DriveController : MonoBehaviour {
     [SerializeField] private float maxSteeringAngle; // maximum steer angle the wheel can have
     [SerializeField] private float minVelocityThreshold;
 
-    [SerializeField] private float tempDrag;
+    float tempDrag;
 
     float initialSideStiffness;
     float turningSideStiffness = 0.1f;
