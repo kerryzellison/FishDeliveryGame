@@ -1502,7 +1502,7 @@ GameObject:
   - component: {fileID: 3327023300140621389}
   - component: {fileID: 3327023300140621378}
   m_Layer: 9
-  m_Name: Wheel Collider Car
+  m_Name: Player Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1603,14 +1603,13 @@ MonoBehaviour:
   maxMotorTorque: 1700
   brakeTorque: 1000
   brakeDrag: 1
-  freezeDrag: 0
+  freezeDrag: 8
   maxReverseTorque: 750
   maxTurnTorque: 300
   aerialSteerTorque: 5
   jumpForce: 10
   maxSteeringAngle: 20
   minVelocityThreshold: 0.1
-  tempDrag: 0
 --- !u!1 &3327023300275273791
 GameObject:
   m_ObjectHideFlags: 0
