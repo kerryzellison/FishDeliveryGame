@@ -261,8 +261,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64673471}
-  m_LocalRotation: {x: 0.13488637, y: 0.0116193965, z: 0.00159265, w: -0.99079174}
-  m_LocalPosition: {x: -42.316048, y: -228.15463, z: -456.02115}
+  m_LocalRotation: {x: 0.1512124, y: -0.7846773, z: -0.21054535, w: -0.56310487}
+  m_LocalPosition: {x: -6.022439, y: 0.3430252, z: -2.1316283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -920,6 +920,11 @@ PrefabInstance:
       propertyPath: maxMotorTorque
       value: 1700
       objectReference: {fileID: 0}
+    - target: {fileID: 3327023300140621378, guid: 8fb1c3d63eca50f4a8004cb7893bb54d,
+        type: 3}
+      propertyPath: freezeDrag
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 739799346, guid: 8fb1c3d63eca50f4a8004cb7893bb54d, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1249,14 +1254,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MissionSelectionWaypoint
       objectReference: {fileID: 0}
-    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
-      propertyPath: waypointController
-      value: 
-      objectReference: {fileID: 705445942}
-    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
-      propertyPath: waypointNumber
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 494538, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.3
@@ -1300,6 +1297,14 @@ PrefabInstance:
     - target: {fileID: 494538, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
+      propertyPath: waypointController
+      value: 
+      objectReference: {fileID: 705445942}
+    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
+      propertyPath: waypointNumber
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
@@ -1594,7 +1599,7 @@ MonoBehaviour:
   arrowTargetSmooth: 1
   TotalWaypoints: 3
   waypointList:
-  - waypointName: Waypoint 1
+  - waypointName: Mission Selection - 1
     waypoint: {fileID: 561329989}
     waypointEvent:
       m_PersistentCalls:
@@ -1610,9 +1615,20 @@ MonoBehaviour:
             m_StringArgument: Mission 1
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1919185791}
+          m_MethodName: FreezeCar
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  - waypointName: Waypoint 2
+  - waypointName: Upgrades - 2
     waypoint: {fileID: 1462251599}
     waypointEvent:
       m_PersistentCalls:
@@ -1630,7 +1646,7 @@ MonoBehaviour:
           m_CallState: 0
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  - waypointName: Waypoint 3
+  - waypointName: ToMission - 3
     waypoint: {fileID: 1798998168}
     waypointEvent:
       m_PersistentCalls:
@@ -1643,7 +1659,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Mission Jannik
+            m_StringArgument: Hub
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -2145,18 +2161,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeWaypoint
       objectReference: {fileID: 0}
-    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
-      propertyPath: waypointController
-      value: 
-      objectReference: {fileID: 705445942}
-    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
-      propertyPath: radius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
-      propertyPath: waypointNumber
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 494538, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.61
@@ -2200,6 +2204,18 @@ PrefabInstance:
     - target: {fileID: 494538, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
+      propertyPath: waypointController
+      value: 
+      objectReference: {fileID: 705445942}
+    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
+      propertyPath: radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
+      propertyPath: waypointNumber
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6567952, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
       propertyPath: m_Size.x
@@ -2647,18 +2663,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToMissionWaypoint
       objectReference: {fileID: 0}
-    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
-      propertyPath: waypointController
-      value: 
-      objectReference: {fileID: 705445942}
-    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
-      propertyPath: radius
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
-      propertyPath: waypointNumber
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 494538, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.6
@@ -2714,6 +2718,18 @@ PrefabInstance:
     - target: {fileID: 494538, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
       propertyPath: m_LocalScale.z
       value: 8.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
+      propertyPath: waypointController
+      value: 
+      objectReference: {fileID: 705445942}
+    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
+      propertyPath: radius
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430668, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
+      propertyPath: waypointNumber
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6567952, guid: 1b0d6b96d8195b34997787cdb062b088, type: 3}
       propertyPath: m_Size.x
@@ -2891,8 +2907,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244526933}
-  m_LocalRotation: {x: 0.16452087, y: 0.020444183, z: 0.0034214505, w: -0.98615575}
-  m_LocalPosition: {x: 550.7137, y: -605.82385, z: -286.11346}
+  m_LocalRotation: {x: 0.034107298, y: -0.95963776, z: -0.13297415, w: -0.24545859}
+  m_LocalPosition: {x: -3.239597, y: 5.5068493, z: 1.6247687}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4178,6 +4194,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1919185791 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3327023300140621378, guid: 8fb1c3d63eca50f4a8004cb7893bb54d,
+    type: 3}
+  m_PrefabInstance: {fileID: 264631747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919185789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e92f06dfd6d3224d9b7fbd9189443ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1919185795
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919185789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.4074051, z: 3.058825}
+  m_Center: {x: -4.440892e-15, y: 0.67350686, z: 0.13830476}
 --- !u!1001 &1922328229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4933,6 +4974,81 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 99.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910231710227833, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910231710227833, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910231710227833, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910231710227833, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1919185791}
+    - target: {fileID: 8842910231710227833, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: FreezeCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910231710227833, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910232909887771, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910232909887771, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910232909887771, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910232909887771, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5146369264818858615}
+    - target: {fileID: 8842910232909887771, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetSceneToLoad
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910232909887771, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910232909887771, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910232909887771, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Mission 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842910232909887771, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bf123f8f4447f64a898a859d81d1f3d, type: 3}

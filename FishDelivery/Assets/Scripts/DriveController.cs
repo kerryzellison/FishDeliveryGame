@@ -23,14 +23,15 @@ public class DriveController : MonoBehaviour {
     [SerializeField] private float maxMotorTorque; // maximum torque the motor can apply to wheel
     [SerializeField] private float brakeTorque;
     [SerializeField] private float brakeDrag;
+    [SerializeField] private float freezeDrag;
     [SerializeField] private float maxReverseTorque;
     [SerializeField] private float maxTurnTorque;
     [SerializeField] private float aerialSteerTorque;
     [SerializeField] private float jumpForce;
     [SerializeField] private float maxSteeringAngle; // maximum steer angle the wheel can have
     [SerializeField] private float minVelocityThreshold;
-    
 
+    [SerializeField] private float tempDrag;
 
     float initialSideStiffness;
     float turningSideStiffness = 0.1f;
@@ -213,7 +214,7 @@ public class DriveController : MonoBehaviour {
 
     private void ConfigureSubSteps( float speedThreshold, int stepsBelowThreshold, int stepsAboveThreshold)
     {
-    foreach (AxleInfo axleInfo in axleInfos) 
+        foreach (AxleInfo axleInfo in axleInfos) 
         {
                 axleInfo.leftWheel.ConfigureVehicleSubsteps(speedThreshold,stepsBelowThreshold,stepsAboveThreshold);
                 axleInfo.rightWheel.ConfigureVehicleSubsteps(speedThreshold,stepsBelowThreshold,stepsAboveThreshold);
@@ -242,6 +243,24 @@ public class DriveController : MonoBehaviour {
         else
         {
             return false;
+        }
+    }
+
+    public void FreezeCar(bool frozen)
+    {
+        if (frozen)
+        {
+            im.enabled = false;
+            tempDrag = brakeDrag;
+            brakeDrag = freezeDrag;
+            Brake(1);
+        }
+        else
+        {
+            Brake(0);
+            brakeDrag = tempDrag;
+            im.enabled = true;
+
         }
     }
 }
