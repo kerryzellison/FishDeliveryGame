@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class WaterSurfaceControl : MonoBehaviour
 {
-
+    public MissionManager missionManager;
     public GameObject splashFX;
+    GameObject fish;
 
-    List<GameObject> splashObjs = new List<GameObject>(); 
-
+    bool CanLoseFish;
     public GameObject waterLevel;
     public GameObject top;
     public GameObject WaterObj;
@@ -28,6 +28,7 @@ public class WaterSurfaceControl : MonoBehaviour
         mesh = WaterObj.GetComponent<MeshFilter>().mesh;
         vertices = mesh.vertices;
         initialVerts = vertices;
+        CanLoseFish = true;
     }
 
     // Update is called once per frame
@@ -58,8 +59,19 @@ public class WaterSurfaceControl : MonoBehaviour
                 {
                     vertices[i].y = topPos.y;
 
+                    if (waterLevel.transform.childCount ==0)
+                    {
+                        //Debug.Break();//("Lost Fish");
+                        LoseFish();
+                        CanLoseFish =false;
+                    }
+                   
                     //SplashWater(vertices[i], topPos-  vertices[i]);
                    // LowerWaterLevel();
+                }
+                else
+                {
+                    //CanLoseFish=true;
                 }
                 if (vertices[i].y < -0.5)
                 {
@@ -82,24 +94,13 @@ public class WaterSurfaceControl : MonoBehaviour
     {
         return Vector3.zero;
     }
+ 
 
-    private void SplashWater(Vector3 pos, Vector3 dir)
+    private void LoseFish()
     {
-
-        pos = transform.TransformPoint(pos);
-        
-        if (splashObjs.Count < 2)
-        {
-            GameObject newSplash = Instantiate(splashFX, pos, Quaternion.identity,WaterObj.transform);
-            newSplash.transform.up = dir;
-            newSplash.name = "Splash FX";
-                                Debug.Log("Splash Water");
-                               // Debug.Break();
-            splashObjs.Add(newSplash);
-
-
-        }
-        
+        fish = Instantiate(splashFX, top.transform.position, Quaternion.identity,waterLevel.transform);
+        Destroy(fish,5);
+        missionManager.lostFish();
     }
 
     private void LowerWaterLevel()
