@@ -7,6 +7,11 @@ public class MissionManager : MonoBehaviour
 {
     public AudioSource waterSplash;
     public GameObject water;
+    public ResourceSystem resourceSystem;
+
+    [HideInInspector]
+    public int missionMoneyAmount = 0;
+    public int fishMax, fishLeft;
 
     void Start()
     {
@@ -15,8 +20,6 @@ public class MissionManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided with something)");
-
         if (collision.gameObject == water.gameObject)
         {
             waterSplash.Play();
@@ -28,5 +31,16 @@ public class MissionManager : MonoBehaviour
     public void ResetMission()
     {
         SceneManager.LoadScene(Application.loadedLevel); //Load scene called Game
+    }
+
+    public void missionMoneyAdd(int amount)
+    {
+        missionMoneyAmount = missionMoneyAmount + amount;
+    }
+
+    public void lostFish()
+    {
+        if (fishLeft >= 0) 
+        fishLeft--;
     }
 }

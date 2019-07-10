@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class WaterSurfaceControl : MonoBehaviour
 {
-
+    public MissionManager missionManager;
     public GameObject splashFX;
     GameObject fish;
+
+    bool CanLoseFish;
     public GameObject waterLevel;
     public GameObject top;
     public GameObject WaterObj;
@@ -26,6 +28,7 @@ public class WaterSurfaceControl : MonoBehaviour
         mesh = WaterObj.GetComponent<MeshFilter>().mesh;
         vertices = mesh.vertices;
         initialVerts = vertices;
+        CanLoseFish = true;
     }
 
     // Update is called once per frame
@@ -59,7 +62,8 @@ public class WaterSurfaceControl : MonoBehaviour
                     if (waterLevel.transform.childCount ==0)
                     {
                         //Debug.Break();//("Lost Fish");
-                        LoseFish();  
+                        LoseFish();
+                        CanLoseFish =false;
                     }
                    
                     //SplashWater(vertices[i], topPos-  vertices[i]);
@@ -67,7 +71,7 @@ public class WaterSurfaceControl : MonoBehaviour
                 }
                 else
                 {
-                    //RemoveSplashWater(vertices[i]);
+                    //CanLoseFish=true;
                 }
                 if (vertices[i].y < -0.5)
                 {
@@ -96,7 +100,7 @@ public class WaterSurfaceControl : MonoBehaviour
     {
         fish = Instantiate(splashFX, top.transform.position, Quaternion.identity,waterLevel.transform);
         Destroy(fish,5);
-        
+        missionManager.lostFish();
     }
 
     private void LowerWaterLevel()

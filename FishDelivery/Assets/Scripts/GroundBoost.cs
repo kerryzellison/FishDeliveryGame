@@ -18,7 +18,8 @@ public class GroundBoost : MonoBehaviour
     private bool boostOnce = true;
 
     [HideInInspector] public int coinAmount = 50;
-    public ResourceSystem rs;
+    public MissionManager ms;
+    public AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +40,7 @@ public class GroundBoost : MonoBehaviour
             }
             else {
             _nitroAmount += nitroAdd;
-            
+                audioManager.Play("NitroPickup");
             }
             other.gameObject.SetActive(false);
             Debug.Log("Amount of nitro left = " + _nitroAmount); 
@@ -47,7 +48,8 @@ public class GroundBoost : MonoBehaviour
         }
 
         if(other.tag == "CoinPickup") {
-            rs.AddMoney(coinAmount);
+            ms.missionMoneyAdd(coinAmount);
+            audioManager.Play("CoinPickup");
             Debug.Log("Yen picked up " + coinAmount);
             other.gameObject.SetActive(false);
         }

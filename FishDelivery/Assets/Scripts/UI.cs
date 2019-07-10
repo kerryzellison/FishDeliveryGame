@@ -7,6 +7,8 @@ public class UI : MonoBehaviour
 {
     [HideInInspector]
     public GameObject player;
+    public GroundBoost nitroBoost;
+    public MissionManager missionManager;
     private RigidBodyInfo rigidBodyInf;
     private ResourceSystem resourceSystem;
 
@@ -25,13 +27,17 @@ public class UI : MonoBehaviour
 
     private float speed = 0;
     private float time = 0;
+    private int currentFishAmount = 0;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         resourceSystem = GetComponent<ResourceSystem>();
         rigidBodyInf = player.GetComponent<RigidBodyInfo>();
-        moneyText1.text = resourceSystem.GetMoney().ToString() + "¥";
+        moneyText2.text = resourceSystem.GetMoney().ToString() + "¥";
+        moneyText1.text = "+0¥";
+        currentFishAmount = missionManager.fishLeft;
+        fishText.text = currentFishAmount + "/" + missionManager.fishMax;
 
         if (inGameHub)
         {
@@ -55,7 +61,29 @@ public class UI : MonoBehaviour
         {
             time = (int)Time.time;
             timeText.text = time + " sec";
+            boostText.text = "Nitro: " + NitroPercentage().ToString() + "%";
+            moneyText1.text = "+" + missionManager.missionMoneyAmount.ToString() + "¥";
+            if (missionManager.fishLeft != currentFishAmount)
+            {
+                // Flash UI red for a moment YYY
+                fishText.text = missionManager.fishLeft + "/" + missionManager.fishMax;
+                currentFishAmount = missionManager.fishLeft;
+                StartCoroutine(UpdateFishCount());
+            }
         }
 
+    }
+
+    IEnumerator UpdateFishCount()
+    {
+        fishText.color = Color.red;
+        yield return new WaitForSeconds(2);
+        fishText.color = new Color(0.2924528f, 0.2924528f, 0.2924528f, 0.8470588f);
+    }
+
+    private int NitroPercentage()
+    {
+        float nitro = (nitroBoost._nitroAmount / nitroBoost.nitroMax) * 100;
+        return (int)nitro;
     }
 }
