@@ -18,7 +18,7 @@ public class GroundBoost : MonoBehaviour
     private bool boostOnce = true;
 
     [HideInInspector] public int coinAmount = 50;
-    [HideInInspector] public ResourceSystem rs;
+    public ResourceSystem rs;
     // Start is called before the first frame update
     void Start()
     {
