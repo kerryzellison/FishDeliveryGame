@@ -36,7 +36,8 @@ public class UI : MonoBehaviour
         rigidBodyInf = player.GetComponent<RigidBodyInfo>();
         moneyText2.text = resourceSystem.GetMoney().ToString() + "¥";
         moneyText1.text = "+0¥";
-        fishText.text = missionManager.fishLeft + "/" + missionManager.fishMax;
+        currentFishAmount = missionManager.fishLeft;
+        fishText.text = currentFishAmount + "/" + missionManager.fishMax;
 
         if (inGameHub)
         {
@@ -66,14 +67,18 @@ public class UI : MonoBehaviour
             {
                 // Flash UI red for a moment YYY
                 fishText.text = missionManager.fishLeft + "/" + missionManager.fishMax;
+                currentFishAmount = missionManager.fishLeft;
+                StartCoroutine(UpdateFishCount());
             }
         }
 
     }
 
-    public void UpdateFishCount()
+    IEnumerator UpdateFishCount()
     {
-
+        fishText.color = Color.red;
+        yield return new WaitForSeconds(2);
+        fishText.color = new Color(0.2924528f, 0.2924528f, 0.2924528f, 0.8470588f);
     }
 
     private int NitroPercentage()
