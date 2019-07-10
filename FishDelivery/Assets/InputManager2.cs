@@ -145,7 +145,7 @@ public class InputManager2 : MonoBehaviour
         {
             if (BrakeNotReverse)
             {
-                Debug.Log("Brake");
+                //Debug.Log("Brake");
                 dc.Brake(1);
             }
             else
@@ -162,11 +162,10 @@ public class InputManager2 : MonoBehaviour
         }
 
 //*****Abilities*****
-        if(Input.GetButtonDown(jump) && !HasJumped)
+        if(Input.GetButton(jump))
         {
-           //Debug.Log("Jump");
-           dc.Jump();
-           HasJumped=true;
+            Debug.Log("Jump");
+           dc.Rocket();
         }
 
 //*****Abilities*****

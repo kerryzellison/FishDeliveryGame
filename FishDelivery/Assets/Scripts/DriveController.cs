@@ -28,6 +28,7 @@ public class DriveController : MonoBehaviour {
     [SerializeField] private float maxTurnTorque;
     [SerializeField] private float aerialSteerTorque;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float RocketForce;
     [SerializeField] private float maxSteeringAngle; // maximum steer angle the wheel can have
     [SerializeField] private float minVelocityThreshold;
 
@@ -172,6 +173,11 @@ public class DriveController : MonoBehaviour {
     public void Jump ()
     {
         rb.AddRelativeForce(0, jumpForce,0,ForceMode.VelocityChange);
+    }
+
+    public void Rocket ()
+    {
+        rb.AddRelativeForce(0, RocketForce,0,ForceMode.Acceleration);
     }
     
     public void SetTurningStiffness(AxleInfo axleInfo, float newStiffness)

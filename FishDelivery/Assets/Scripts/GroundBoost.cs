@@ -82,9 +82,6 @@ public class GroundBoost : MonoBehaviour
         else if(_nitroAmount < 0f){
             _nitroAmount = 0;
         }
-
-        
-
     }
 
     void StopBoostPad() {

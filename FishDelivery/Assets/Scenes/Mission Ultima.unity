@@ -363,6 +363,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3327023300140621378, guid: 8fb1c3d63eca50f4a8004cb7893bb54d,
+        type: 3}
+      propertyPath: RocketForce
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3327023300384486740, guid: 8fb1c3d63eca50f4a8004cb7893bb54d,
         type: 3}
       propertyPath: far clip plane
@@ -17830,8 +17835,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989828938}
-  m_LocalRotation: {x: -0.06763913, y: 0.9133525, z: 0.36310273, w: 0.17137277}
-  m_LocalPosition: {x: -76.14185, y: -18.531658, z: 528.641}
+  m_LocalRotation: {x: 0.12563331, y: 0.022917014, z: 0.0029029057, w: -0.99180776}
+  m_LocalPosition: {x: 40.482265, y: 10.4412775, z: 242.42088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18196,6 +18201,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 532579832035113221, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: inGameHub
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 532579832035113221, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: nitroBoost
+      value: 
+      objectReference: {fileID: 30321238}
+    - target: {fileID: 532579832035113221, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+        type: 3}
+      propertyPath: missionManager
+      value: 
+      objectReference: {fileID: 30321237}
     - target: {fileID: 8842910231882822671, guid: 8bf123f8f4447f64a898a859d81d1f3d,
         type: 3}
       propertyPath: m_Name
@@ -18311,21 +18331,6 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 800
       objectReference: {fileID: 0}
-    - target: {fileID: 532579832035113221, guid: 8bf123f8f4447f64a898a859d81d1f3d,
-        type: 3}
-      propertyPath: inGameHub
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 532579832035113221, guid: 8bf123f8f4447f64a898a859d81d1f3d,
-        type: 3}
-      propertyPath: nitroBoost
-      value: 
-      objectReference: {fileID: 30321238}
-    - target: {fileID: 532579832035113221, guid: 8bf123f8f4447f64a898a859d81d1f3d,
-        type: 3}
-      propertyPath: missionManager
-      value: 
-      objectReference: {fileID: 30321237}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bf123f8f4447f64a898a859d81d1f3d, type: 3}
 --- !u!1 &2057441327
