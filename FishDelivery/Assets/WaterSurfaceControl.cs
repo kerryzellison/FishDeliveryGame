@@ -59,7 +59,7 @@ public class WaterSurfaceControl : MonoBehaviour
                     vertices[i].y = topPos.y;
 
                     //SplashWater(vertices[i], topPos-  vertices[i]);
-                    LowerWaterLevel();
+                   // LowerWaterLevel();
                 }
                 if (vertices[i].y < -0.5)
                 {
