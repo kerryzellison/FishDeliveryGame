@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class FollowObject : MonoBehaviour
 {
-
-    public GameObject obj;
+    public GameObject followPos;
+    Rigidbody rb;
+    Vector3 deltaPos;
+    public float multiplier;
     // Start is called before the first frame update
     void Start()
     {
-        if (!obj)
-        {
-            Debug.Log("enter");
-            obj = GameObject.Find("Tank Frame");
-        }
+
+        rb = GetComponent<Rigidbody>();
+        transform.parent=null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = obj.transform.position;
-        transform.rotation = obj.transform.rotation;
+        
+        deltaPos = followPos.transform.position-transform.position;
+
+        if (deltaPos.magnitude > 2)
+        {
+            transform.position = followPos.transform.position - deltaPos.normalized*2;
+        }
+
+        rb.AddForce(deltaPos*multiplier*Time.deltaTime);
     }
 }
