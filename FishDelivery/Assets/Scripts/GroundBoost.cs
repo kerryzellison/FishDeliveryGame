@@ -6,7 +6,7 @@ public class GroundBoost : MonoBehaviour
 {
     //public RigidBodyInfo rbInfo;
     public Rigidbody carRB;
-    public float boostDuration = 2000f, boostMultiplier = 2f, nitroDepletion = 15f, nitroStart, nitroMin = 0f, nitroMax = 500f, nitroAdd;
+    public float boostDuration = 2000f, boostMultiplier, nitroBoostMultiplier, nitroDepletion = 15f, nitroStart, nitroMin = 0f, nitroMax = 500f, nitroAdd;
 
     /* float nitroAmount {
         get {return nitroAmount;}
@@ -15,19 +15,16 @@ public class GroundBoost : MonoBehaviour
     
     public float _nitroAmount;
     private Coroutine boostCoroutine;
-    private bool boostOnce = true, nitroBoosting = false;
+    private bool boostOnce = true;
+
+    [HideInInspector] public int coinAmount = 50;
+    [HideInInspector] public ResourceSystem rs;
     // Start is called before the first frame update
     void Start()
     {
         carRB = GetComponent<Rigidbody>();
         float _nitroAmount = Mathf.Clamp(nitroStart, nitroMin, nitroMax);
         //nitroAdd = 50;
-    }
-    
-    void Update() {
-        if(nitroBoosting) {
-            _nitroAmount -= Time.deltaTime * nitroDepletion;
-        }
     }
 
     void OnTriggerEnter(Collider other) {
@@ -47,6 +44,12 @@ public class GroundBoost : MonoBehaviour
             other.gameObject.SetActive(false);
             Debug.Log("Amount of nitro left = " + _nitroAmount); 
 
+        }
+
+        if(other.tag == "CoinPickup") {
+            rs.AddMoney(coinAmount);
+            Debug.Log("Yen picked up " + coinAmount);
+            other.gameObject.SetActive(false);
         }
 
     }
@@ -71,12 +74,11 @@ public class GroundBoost : MonoBehaviour
     public void nitroBoost() {
         Debug.Log("Nitro remaining = " + _nitroAmount);
         if(_nitroAmount > 0f) {
-        nitroBoosting = true;
-        carRB.velocity = carRB.velocity * boostMultiplier;
+        carRB.AddForce(transform.forward * nitroBoostMultiplier, ForceMode.Impulse);
+        _nitroAmount -= Time.deltaTime * nitroDepletion;
         }
-        else {
+        else if(_nitroAmount < 0f){
             _nitroAmount = 0;
-            nitroBoosting = false;
         }
 
         
