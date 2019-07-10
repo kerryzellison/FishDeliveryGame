@@ -49,6 +49,7 @@ public class InputManager2 : MonoBehaviour
     //connected scripts
     DriveController dc;
     CameraController cc;
+    public CarUpgrades upgrades;
 
     GroundBoost gb;
 
@@ -162,10 +163,9 @@ public class InputManager2 : MonoBehaviour
         }
 
 //*****Abilities*****
-        if(Input.GetButton(jump))
+        if(Input.GetButton(jump) && upgrades.boosterRocketsEnabled)
         {
-            Debug.Log("Jump");
-           dc.Rocket();
+            dc.Rocket();
         }
 
 //*****Abilities*****
@@ -177,7 +177,7 @@ public class InputManager2 : MonoBehaviour
         }
 
             
-        if(Input.GetButton(nitro)) {
+        if(Input.GetButton(nitro) && upgrades.nitroBoostersEnabled) {
             gb.nitroBoost();
         }
 

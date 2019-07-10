@@ -787,6 +787,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  nitroBoost: {fileID: 0}
+  missionManager: {fileID: 0}
   inGameHub: 1
   speedText: {fileID: 7760549376765845533}
   fishText: {fileID: 7760549378113972294}
