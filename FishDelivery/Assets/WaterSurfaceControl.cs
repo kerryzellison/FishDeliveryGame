@@ -58,7 +58,7 @@ public class WaterSurfaceControl : MonoBehaviour
 
                     if (waterLevel.transform.childCount ==0)
                     {
-                        Debug.Break();//("Lost Fish");
+                        //Debug.Break();//("Lost Fish");
                         LoseFish();  
                     }
                    
