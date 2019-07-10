@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaterSurfaceControl : MonoBehaviour
 {
-
+    public MissionManager missionManager;
     public GameObject splashFX;
     GameObject fish;
 
@@ -100,7 +100,7 @@ public class WaterSurfaceControl : MonoBehaviour
     {
         fish = Instantiate(splashFX, top.transform.position, Quaternion.identity,waterLevel.transform);
         Destroy(fish,5);
-        
+        missionManager.lostFish();
     }
 
     private void LowerWaterLevel()
