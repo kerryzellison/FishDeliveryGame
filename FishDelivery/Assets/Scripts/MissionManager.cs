@@ -12,6 +12,7 @@ public class MissionManager : MonoBehaviour
     [HideInInspector]
     public int missionMoneyAmount = 0;
     public int fishMax, fishLeft;
+    public int fishValue = 100;
 
     void Start()
     {
@@ -33,14 +34,26 @@ public class MissionManager : MonoBehaviour
         SceneManager.LoadScene(Application.loadedLevel); //Load scene called Game
     }
 
-    public void missionMoneyAdd(int amount)
+    public void MissionMoneyAdd(int amount)
     {
         missionMoneyAmount = missionMoneyAmount + amount;
     }
 
-    public void lostFish()
+    public void LostFish()
     {
-        if (fishLeft >= 0) 
-        fishLeft--;
+        if (fishLeft > 0)
+        {
+            fishLeft--;
+        } else
+        {
+            ResetMission();
+        }
+
+    }
+
+    public void MissionAward()
+    {
+        missionMoneyAmount = missionMoneyAmount + (fishValue * fishLeft);
+        resourceSystem.AddMoney(missionMoneyAmount);
     }
 }

@@ -48,7 +48,7 @@ public class GroundBoost : MonoBehaviour
         }
 
         if(other.tag == "CoinPickup") {
-            ms.missionMoneyAdd(coinAmount);
+            ms.MissionMoneyAdd(coinAmount);
             audioManager.Play("CoinPickup");
             Debug.Log("Yen picked up " + coinAmount);
             other.gameObject.SetActive(false);
