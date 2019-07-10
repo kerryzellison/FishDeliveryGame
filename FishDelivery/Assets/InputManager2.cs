@@ -178,7 +178,7 @@ public class InputManager2 : MonoBehaviour
         }
 
             
-        if(Input.GetButtonDown(nitro)) {
+        if(Input.GetButton(nitro)) {
             gb.nitroBoost();
         }
 
