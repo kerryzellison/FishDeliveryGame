@@ -32,6 +32,7 @@ public class GroundBoost : MonoBehaviour
         
         if(other.tag == "BoostPad") {
             StopBoostPad();
+            audioManager.Play("Boost");
             boostCoroutine = StartCoroutine(BoostPad());
         }
         if(other.tag == "NitroPickup") {
@@ -76,14 +77,13 @@ public class GroundBoost : MonoBehaviour
     public void nitroBoost() {
         Debug.Log("Nitro remaining = " + _nitroAmount);
         if(_nitroAmount > 0f) {
-        carRB.AddForce(transform.forward * nitroBoostMultiplier, ForceMode.Impulse);
-        _nitroAmount -= Time.deltaTime * nitroDepletion;
+            audioManager.Play("Boost");
+            carRB.AddForce(transform.forward * nitroBoostMultiplier, ForceMode.Impulse);
+            _nitroAmount -= Time.deltaTime * nitroDepletion;
         }
         else if(_nitroAmount < 0f){
             _nitroAmount = 0;
-        }
-
-        
+        }   
 
     }
 
