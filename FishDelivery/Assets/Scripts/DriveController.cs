@@ -169,7 +169,7 @@ public class DriveController : MonoBehaviour {
         rb.AddRelativeTorque(vertical,horizontal,0,ForceMode.Acceleration);
     }
 
-    public void Jump ()
+    public void Rocket()
     {
         rb.AddRelativeForce(0, jumpForce,0,ForceMode.VelocityChange);
     }
