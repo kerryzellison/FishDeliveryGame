@@ -69,7 +69,7 @@ public class InputManager2 : MonoBehaviour
         nitro = "Nitro"+playerNumber;
 
         dc = GetComponent<DriveController>();
-        //cc = GameObject.Find("Main Camera").GetComponent<CameraController>();
+        cc = FindObjectOfType<CameraController>();
         gb = GetComponent<GroundBoost>();
     }
 
@@ -153,13 +153,14 @@ public class InputManager2 : MonoBehaviour
             {
                 IsDriving = true;
                 dc.Reverse(1);
+                cc.ChangeCameraViewToReverse();
             }
         }
 
         if (Input.GetButtonUp(reverse))
         {
-           dc.Brake(0);
-           dc.Reverse(0);
+            dc.Brake(0);
+            dc.Reverse(0);
         }
 
 //*****Abilities*****
