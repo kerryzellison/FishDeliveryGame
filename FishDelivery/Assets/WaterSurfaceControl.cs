@@ -98,7 +98,7 @@ public class WaterSurfaceControl : MonoBehaviour
 
     private void LoseFish()
     {
-        fish = Instantiate(splashFX, top.transform.position, Quaternion.identity,waterLevel.transform);
+        fish = Instantiate(splashFX, top.transform.position, Quaternion.Euler(Vector3.up),waterLevel.transform);
         Destroy(fish,5);
         missionManager.LostFish();
     }
