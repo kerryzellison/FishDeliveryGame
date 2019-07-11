@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7027609253291935384
+--- !u!1 &4032315283370281092
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7027609253291935386}
-  - component: {fileID: 7027609253291935385}
+  - component: {fileID: 4032315283370281091}
+  - component: {fileID: 4032315283370281093}
+  - component: {fileID: 4032315283370281090}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -17,30 +18,87 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7027609253291935386
+--- !u!4 &4032315283370281091
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7027609253291935384}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 714.5354, y: 224.43803, z: 741.9125}
+  m_GameObject: {fileID: 4032315283370281092}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 714.5354, y: 225.43803, z: 731.9125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7027609253291935385
+--- !u!114 &4032315283370281093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7027609253291935384}
+  m_GameObject: {fileID: 4032315283370281092}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a89f470109fec54f840e51d1b402334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   engineSound: {fileID: 0}
+  player: {fileID: 0}
+--- !u!114 &4032315283370281090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4032315283370281092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e34b31b0e017e43a1ae5a2e9bc5645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: CoinPickup
+    clip: {fileID: 8300000, guid: 702e949a9df8ba64e87db8508698ffcc, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: NitroPickup
+    clip: {fileID: 8300000, guid: bc9422d82aa68624dbe3910b58c980e1, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: splash1
+    clip: {fileID: 8300000, guid: b7a38a296dd3f36418d1cf05c928b185, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: splash2
+    clip: {fileID: 8300000, guid: a5d94e6cfc89a7d49a3d9d031466c903, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: splash3
+    clip: {fileID: 8300000, guid: e210df0ed82771a4086624453ce42df9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: splash4
+    clip: {fileID: 8300000, guid: daed64304587d3b4b8e70e9a6032b733, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: splash5
+    clip: {fileID: 8300000, guid: ca88f2be501023643bb8d4f669bc162b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  delayTime: 4

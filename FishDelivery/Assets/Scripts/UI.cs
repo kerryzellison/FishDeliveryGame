@@ -25,6 +25,8 @@ public class UI : MonoBehaviour
     public Image overlay;
     public Sprite[] spriteOverlay;
 
+    public AudioManager audioManager;
+
     private float speed = 0;
     private float time = 0;
     private int currentFishAmount = 0;
@@ -36,6 +38,7 @@ public class UI : MonoBehaviour
         rigidBodyInf = player.GetComponent<RigidBodyInfo>();
         moneyText2.text = resourceSystem.GetMoney().ToString() + "¥";
         moneyText1.text = "+0¥";
+        audioManager = FindObjectOfType<AudioManager>();
 
         if (inGameHub)
         {
@@ -51,6 +54,8 @@ public class UI : MonoBehaviour
             currentFishAmount = missionManager.fishLeft;
             fishText.text = currentFishAmount + "/" + missionManager.fishMax;
         }
+
+
     }
 
     void Update()
@@ -70,6 +75,7 @@ public class UI : MonoBehaviour
                 // Flash UI red for a moment YYY
                 fishText.text = missionManager.fishLeft + "/" + missionManager.fishMax;
                 currentFishAmount = missionManager.fishLeft;
+                audioManager.Play(RandomSplash());
                 StartCoroutine(UpdateFishCount());
             }
         }
@@ -88,4 +94,11 @@ public class UI : MonoBehaviour
         float nitro = (nitroBoost._nitroAmount / nitroBoost.nitroMax) * 100;
         return (int)nitro;
     }
+
+    public string RandomSplash() {
+        string[] splashes = {"splash1", "splash2", "splash3", "splash4", "splash5"};
+        string stringChosen = splashes[Random.Range(0, splashes.Length)];
+        Debug.Log("Random string is: " + stringChosen);
+        return stringChosen;
+    }   
 }
