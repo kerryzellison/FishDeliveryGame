@@ -70,6 +70,7 @@ public class UI : MonoBehaviour
                 // Flash UI red for a moment YYY
                 fishText.text = missionManager.fishLeft + "/" + missionManager.fishMax;
                 currentFishAmount = missionManager.fishLeft;
+                RandomSplash();
                 StartCoroutine(UpdateFishCount());
             }
         }
@@ -88,4 +89,10 @@ public class UI : MonoBehaviour
         float nitro = (nitroBoost._nitroAmount / nitroBoost.nitroMax) * 100;
         return (int)nitro;
     }
+
+    public void RandomSplash() {
+        string[] splashes = {"splash1", "splash2", "splash3"};
+        string stringChosen = splashes[Random.Range(0, splashes.Length)];
+        Debug.Log("Random string is: " + stringChosen);
+    }   
 }
