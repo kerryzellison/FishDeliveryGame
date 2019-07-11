@@ -20,9 +20,9 @@ public class MissionManager : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider col)
     {
-        if (collision.gameObject == water.gameObject)
+        if (col.gameObject == water.gameObject)
         {
             // waterSplash.Play();
             ResetMission();
