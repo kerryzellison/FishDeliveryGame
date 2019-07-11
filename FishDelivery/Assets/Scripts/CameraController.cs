@@ -1,58 +1,63 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CameraController : MonoBehaviour
 {
-    GameObject car;
-    Vector3 initialCameraOffsetDirection;
-
-    Vector3 CurrentCameraOffsetDirection;
-    public float CameraDistance;
-
-    // Start is called before the first frame update
-    void Start()
+    [Serializable]
+    public class AdvancedOptions
     {
-        car = GameObject.Find("Car");
+        public bool updateCameraInUpdate;
+        public bool updateCameraInFixedUpdate = true;
+        public bool updateCameraInLateUpdate;
+    }
+    public float baseSmoothing = 2;
+    public float distFactor;
+    public Transform lookAtTarget;
+    public Transform positionTarget;
+    public Transform reverseView;
+    public AdvancedOptions advancedOptions;
 
-        initialCameraOffsetDirection=CameraToObjectOffset(car);
+    GameObject player;
+    InputManager2 playerInput;
 
+    //bool m_ShowingReverseView;
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerInput = player.GetComponent<InputManager2>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        transform.forward = SetForwardDirectionToObject(car);
-        CurrentCameraOffsetDirection= CameraToObjectOffset(car);
-        transform.position = CurrentCameraOffsetDirection*CameraDistance+car.transform.position;
-
-
-        
-
+        if (advancedOptions.updateCameraInFixedUpdate)
+            UpdateCamera();
     }
 
-    Vector3 SetForwardDirectionToObject(GameObject go)
+
+    private void Update()
     {
-        Vector3 cameraToObjectDirection;
-        cameraToObjectDirection = Vector3.Normalize(go.transform.position - transform.position);
-        return cameraToObjectDirection;
+        if (advancedOptions.updateCameraInUpdate)
+            UpdateCamera();
     }
 
-    Vector3 CameraToObjectOffset(GameObject go)
+    private void LateUpdate()
     {
-        Vector3 offset;
-        offset = Vector3.Normalize(transform.position - go.transform.position);
-        return offset;
+        if (advancedOptions.updateCameraInLateUpdate)
+            UpdateCamera();
     }
 
-    public void RotateCamera(float vertical, float horizontal)
+    private void UpdateCamera()
     {
-        transform.position +=transform.up*vertical*0.25f +transform.right*horizontal*0.25f;
+        transform.position = Vector3.Lerp(transform.position, positionTarget.position, Time.deltaTime * baseSmoothing * (Vector3.Distance(transform.position, positionTarget.position) * distFactor));
+        transform.LookAt(lookAtTarget);
     }
 
-    public void ResetCamera()
+    public void ChangeCameraViewToReverse()
     {
-        CurrentCameraOffsetDirection = initialCameraOffsetDirection;
+        transform.position = reverseView.position;
+        transform.LookAt(lookAtTarget);
     }
 }
