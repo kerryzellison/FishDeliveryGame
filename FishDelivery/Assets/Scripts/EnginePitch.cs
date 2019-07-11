@@ -5,14 +5,18 @@ using UnityEngine;
 public class EnginePitch : MonoBehaviour
 {
     public AudioSource engineSound;
-    public GameObject car;
+    public GameObject player;
     private RigidBodyInfo rigidBodyInf;
 
     void Start()
     {
-        if (car != null)
+        if (player = GameObject.FindGameObjectWithTag("Player"))
+            Debug.Log("EnginePitch Script: Player object found");
+
+        if (player != null)
         {
-            rigidBodyInf = car.GetComponent<RigidBodyInfo>();
+            rigidBodyInf = player.GetComponent<RigidBodyInfo>();
+            engineSound = player.GetComponent<AudioSource>();
         }
         else
         {
