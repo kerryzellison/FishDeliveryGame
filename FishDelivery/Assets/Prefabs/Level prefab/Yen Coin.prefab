@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 144207585650835562}
   - component: {fileID: 5853797035906006163}
   - component: {fileID: 4188882536817413876}
+  - component: {fileID: -43764512837691101}
   m_Layer: 0
   m_Name: Yen Coin
   m_TagString: CoinPickup
@@ -92,3 +93,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -2035863510509574344, guid: ad925987a7594a943946f5b96ef59846, type: 3}
+--- !u!114 &-43764512837691101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5260216936238368847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fccb29ef10ad7b64da61f643df8ed48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
