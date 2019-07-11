@@ -36,8 +36,6 @@ public class UI : MonoBehaviour
         rigidBodyInf = player.GetComponent<RigidBodyInfo>();
         moneyText2.text = resourceSystem.GetMoney().ToString() + "¥";
         moneyText1.text = "+0¥";
-        currentFishAmount = missionManager.fishLeft;
-        fishText.text = currentFishAmount + "/" + missionManager.fishMax;
 
         if (inGameHub)
         {
@@ -48,6 +46,10 @@ public class UI : MonoBehaviour
             timeText.gameObject.SetActive(false);
             moneyText1.gameObject.SetActive(false);
             moneyText2.gameObject.SetActive(true);
+        } else if (!inGameHub)
+        {
+            currentFishAmount = missionManager.fishLeft;
+            fishText.text = currentFishAmount + "/" + missionManager.fishMax;
         }
     }
 

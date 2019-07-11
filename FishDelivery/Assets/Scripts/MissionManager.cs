@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MissionManager : MonoBehaviour
 {
-    public AudioSource waterSplash;
+    // public AudioSource waterSplash;
     public GameObject water;
     public ResourceSystem resourceSystem;
+    public UI ui;
 
     [HideInInspector]
     public int missionMoneyAmount = 0;
@@ -23,7 +24,7 @@ public class MissionManager : MonoBehaviour
     {
         if (collision.gameObject == water.gameObject)
         {
-            waterSplash.Play();
+            // waterSplash.Play();
             ResetMission();
             Debug.Log("Collided with water");
         }
@@ -55,5 +56,6 @@ public class MissionManager : MonoBehaviour
     {
         missionMoneyAmount = missionMoneyAmount + (fishValue * fishLeft);
         resourceSystem.AddMoney(missionMoneyAmount);
+        ui.inGameHub = true;
     }
 }

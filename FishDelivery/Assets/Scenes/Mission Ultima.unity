@@ -395,7 +395,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterSplash: {fileID: 1046045648}
   water: {fileID: 1046045647}
-  resourceSystem: {fileID: 0}
+  resourceSystem: {fileID: 1365621043}
+  ui: {fileID: 1365621044}
   missionMoneyAmount: 0
   fishMax: 10
   fishLeft: 10
@@ -9601,6 +9602,80 @@ Transform:
   m_Father: {fileID: 1724591360}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 77.692}
+--- !u!1 &633573510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 633573512}
+  - component: {fileID: 633573511}
+  m_Layer: 0
+  m_Name: Water4AdvancedReflectionMain Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!20 &633573511
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633573510}
+  m_Enabled: 0
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_projectionMatrixMode: 0
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967279
+  m_RenderingPath: 1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &633573512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633573510}
+  m_LocalRotation: {x: -0.10738237, y: 0.8907904, z: 0.28483188, w: 0.33739048}
+  m_LocalPosition: {x: -74.56831, y: -35.050594, z: 629.76074}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &653236265
 GameObject:
   m_ObjectHideFlags: 0
@@ -11748,17 +11823,6 @@ MonoBehaviour:
     waypointEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 864555845}
-          m_MethodName: FadeToNextScene
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Hub
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 30321237}
           m_MethodName: MissionAward
           m_Mode: 1
@@ -11768,6 +11832,17 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 864555845}
+          m_MethodName: FadeToNextScene
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Hub
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -14033,6 +14108,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1508148341}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1365621043 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 532579832035113219, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2055756938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2226901e0d327dc4a9424024d4bda382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1365621044 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 532579832035113221, guid: 8bf123f8f4447f64a898a859d81d1f3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2055756938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad4b60fe570c1f4d9058bb244de064b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1365973239
 GameObject:
   m_ObjectHideFlags: 0
@@ -18124,8 +18223,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989828938}
-  m_LocalRotation: {x: -0.18617189, y: 0.66085863, z: 0.17490815, w: 0.70570046}
-  m_LocalPosition: {x: -91.154366, y: -24.399555, z: 515.238}
+  m_LocalRotation: {x: 0.10202982, y: 0.1953869, z: 0.020442465, w: -0.9751902}
+  m_LocalPosition: {x: -61.43854, y: -24.629997, z: 535.149}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
