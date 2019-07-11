@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CarUpgrades : MonoBehaviour
 {
@@ -9,13 +11,14 @@ public class CarUpgrades : MonoBehaviour
     InputManager2 input;
     /////////////////
 
-    public GameObject upgradeMenu;
-
     [System.Serializable]
     public class UpgradeItem
     {
+        public string upgradeName;
         public bool purchased = false;
         public int price;
+        public string description;
+        public Button btn;
     }
     public UpgradeItem[] upgrades;
     [HideInInspector] public bool boosterRocketsEnabled;
@@ -27,6 +30,9 @@ public class CarUpgrades : MonoBehaviour
 
     [SerializeField] private int maxNitroCapacity = 500;
     [SerializeField] private int maxFishTankSize = 30;
+
+    public int disabledAlphaValue = 100;
+    public float disabledAlphaValueNormalized = 0.39f;
 
     private void Start()
     {
@@ -43,35 +49,32 @@ public class CarUpgrades : MonoBehaviour
 
             if (upgradeNum == 0) // Booster Rockets
             {
+                upgrades[0].purchased = true;
                 boosterRocketsEnabled = true;
+                DisableItem(upgrades[0]);
                 Debug.Log("Booster rockets purchased");
+
+                //PlayerPrefs.SetString(upgrades[0].purchased.ToString(),"true"); // UNTESTED
             }
-            else if (upgradeNum == 1) // Air Glider
+            else if (upgradeNum == 1) // Nitro Boosters
             {
-                airGliderEnabled = true;
-                Debug.Log("Air Glider purchased");
-            }
-            else if (upgradeNum == 2) // Nitro Boosters
-            {
+                upgrades[1].purchased = true;
                 nitroBoostersEnabled = true;
                 nitroCapacity += 100;
+                DisableItem(upgrades[1]);
                 Debug.Log("Nitro Boosters purchased");
             }
-            else if (upgradeNum == 3) // Fish-tank Lid
+            else if (upgradeNum == 2 && fishTankSize < maxFishTankSize) // Fish-tank size
             {
-
-                fishTankLidEnabled = true;
-                Debug.Log("Fish-tank Lid purchased");
-            }
-            else if (upgradeNum == 4 && nitroBoostersEnabled && nitroCapacity < maxNitroCapacity) // Nitro capacity increase
-            {
-                nitroCapacity += 50;
-                Debug.Log("Nitro Capacity increased! Capacity is now " + nitroCapacity + "!");
-            }
-            else if (upgradeNum == 5 && fishTankSize < maxFishTankSize) // Fish-tank size
-            {
+                upgrades[2].purchased = true;
                 fishTankSize += 5;
                 Debug.Log("Fish-tank Size increased! The tank can now hold is now " + fishTankSize + " fish!");
+            }
+            else if (upgradeNum == 3 && nitroBoostersEnabled && nitroCapacity < maxNitroCapacity) // Nitro capacity increase
+            {
+                upgrades[3].purchased = true;
+                nitroCapacity += 50;
+                Debug.Log("Nitro Capacity increased! Capacity is now " + nitroCapacity + "!");
             }
             else if (upgradeNum == 6) //
             {
@@ -98,15 +101,33 @@ public class CarUpgrades : MonoBehaviour
         }
     }
 
-    public void UpgradeMenuOpened(bool opened) 
+    public void UpdateMenuText()
     {
-        if (opened)
+        foreach (UpgradeItem item in upgrades)
         {
-            upgradeMenu.SetActive(true);
+            ChangeChildText(item.btn.gameObject, "Title", item.upgradeName);
+            ChangeChildText(item.btn.gameObject, "Price", item.price.ToString() + " ¥");
+            ChangeChildText(item.btn.gameObject, "Description", item.description);
+            if (item.purchased)
+            {
+                DisableItem(item);
+            }
         }
-        else
+    }
+
+    public void ChangeChildText(GameObject parent, string childName, string input)
+    {
+        TextMeshProUGUI text = GameObject.Find(parent.name + "/" + childName).GetComponent<TextMeshProUGUI>();
+        text.SetText(input);
+    }
+    
+    private void DisableItem(UpgradeItem item)
+    {
+        item.btn.interactable = false;
+        item.btn.image.color = new Color(item.btn.image.color.r, item.btn.image.color.g, item.btn.image.color.b, disabledAlphaValue);
+        foreach (TextMeshProUGUI text in item.btn.GetComponentsInChildren<TextMeshProUGUI>())
         {
-            upgradeMenu.SetActive(false);
+            text.color = new Color(text.color.r, text.color.g, text.color.b, disabledAlphaValueNormalized);
         }
     }
 }
