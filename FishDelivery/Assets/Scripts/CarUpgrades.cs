@@ -6,6 +6,7 @@ public class CarUpgrades : MonoBehaviour
 {
     // Access to other script on the player object
     ResourceSystem resources;
+    InputManager2 input;
     /////////////////
 
     public GameObject upgradeMenu;
@@ -17,10 +18,20 @@ public class CarUpgrades : MonoBehaviour
         public int price;
     }
     public UpgradeItem[] upgrades;
+    [HideInInspector] public bool boosterRocketsEnabled;
+    [HideInInspector] public bool airGliderEnabled;
+    [HideInInspector] public bool nitroBoostersEnabled;
+    [HideInInspector] public bool fishTankLidEnabled;
+    [HideInInspector] public int nitroCapacity;
+    [HideInInspector] public int fishTankSize;
+
+    [SerializeField] private int maxNitroCapacity = 500;
+    [SerializeField] private int maxFishTankSize = 30;
 
     private void Start()
     {
         resources = GetComponent<ResourceSystem>();
+        input = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager2>();
     }
 
     public void purchaseUpgrade(int upgradeNum)
@@ -30,29 +41,37 @@ public class CarUpgrades : MonoBehaviour
             upgrades[upgradeNum].purchased = true;
             resources.SetMoney(resources.GetMoney() - upgrades[upgradeNum].price); // Subtract price from player's money
 
-            if (upgradeNum == 0) // Fish-tank Lid
+            if (upgradeNum == 0) // Booster Rockets
             {
-
+                boosterRocketsEnabled = true;
+                Debug.Log("Booster rockets purchased");
             }
-            else if (upgradeNum == 1) // Glider
+            else if (upgradeNum == 1) // Air Glider
             {
-
+                airGliderEnabled = true;
+                Debug.Log("Air Glider purchased");
             }
-            else if (upgradeNum == 2) // Booster Rockets
+            else if (upgradeNum == 2) // Nitro Boosters
             {
-
+                nitroBoostersEnabled = true;
+                nitroCapacity += 100;
+                Debug.Log("Nitro Boosters purchased");
             }
-            else if (upgradeNum == 3) // Nitro capacity increase
+            else if (upgradeNum == 3) // Fish-tank Lid
             {
 
+                fishTankLidEnabled = true;
+                Debug.Log("Fish-tank Lid purchased");
             }
-            else if (upgradeNum == 4) // Fish-tank size
+            else if (upgradeNum == 4 && nitroBoostersEnabled && nitroCapacity < maxNitroCapacity) // Nitro capacity increase
             {
-
+                nitroCapacity += 50;
+                Debug.Log("Nitro Capacity increased! Capacity is now " + nitroCapacity + "!");
             }
-            else if (upgradeNum == 5) //
+            else if (upgradeNum == 5 && fishTankSize < maxFishTankSize) // Fish-tank size
             {
-
+                fishTankSize += 5;
+                Debug.Log("Fish-tank Size increased! The tank can now hold is now " + fishTankSize + " fish!");
             }
             else if (upgradeNum == 6) //
             {
