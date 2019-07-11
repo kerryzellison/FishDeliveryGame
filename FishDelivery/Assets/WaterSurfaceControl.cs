@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaterSurfaceControl : MonoBehaviour
 {
-    public MissionManager missionManager;
+    MissionManager missionManager;
     public GameObject splashFX;
     GameObject fish;
 
@@ -25,6 +25,7 @@ public class WaterSurfaceControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        missionManager = FindObjectOfType<MissionManager>();
         mesh = WaterObj.GetComponent<MeshFilter>().mesh;
         vertices = mesh.vertices;
         initialVerts = vertices;
