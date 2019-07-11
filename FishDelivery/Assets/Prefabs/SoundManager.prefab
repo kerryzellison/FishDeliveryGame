@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   engineSound: {fileID: 0}
-  car: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &4032315283370281090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +68,36 @@ MonoBehaviour:
   - name: NitroPickup
     clip: {fileID: 8300000, guid: bc9422d82aa68624dbe3910b58c980e1, type: 3}
     volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: splash1
+    clip: {fileID: 8300000, guid: b7a38a296dd3f36418d1cf05c928b185, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: splash2
+    clip: {fileID: 8300000, guid: a5d94e6cfc89a7d49a3d9d031466c903, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: splash3
+    clip: {fileID: 8300000, guid: e210df0ed82771a4086624453ce42df9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: splash4
+    clip: {fileID: 8300000, guid: daed64304587d3b4b8e70e9a6032b733, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: splash5
+    clip: {fileID: 8300000, guid: ca88f2be501023643bb8d4f669bc162b, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
