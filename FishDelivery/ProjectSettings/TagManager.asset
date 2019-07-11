@@ -7,6 +7,7 @@ TagManager:
   - BoostPad
   - NitroPickup
   - CoinPickup
+  - StoneHolder
   layers:
   - Default
   - TransparentFX
