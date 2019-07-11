@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Hub.unity
     guid: 488b93796fd91d24bb2cca3f8cc5b69e
   - enabled: 1
-    path: Assets/Scenes/Mission 1.unity
-    guid: 28e38d1a29dc5ce47af7fc5a19ecc698
+    path: Assets/Scenes/Mission Intro.unity
+    guid: 7799f25af03e3524789c21eed52a15bf
+  - enabled: 1
+    path: Assets/Scenes/Mission Ultima.unity
+    guid: 0a6e2644bdcbece40b93894d02c26c50
+  - enabled: 1
+    path: Assets/Scenes/Mission Mountains.unity
+    guid: ee9bb6104795e27459195d9f756df77f
   m_configObjects: {}
