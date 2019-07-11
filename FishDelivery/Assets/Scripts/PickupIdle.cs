@@ -11,7 +11,7 @@ public class PickupIdle : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.RotateAround(transform.position, transform.up, 10);
     }

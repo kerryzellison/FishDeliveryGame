@@ -101,4 +101,10 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Boost
+    clip: {fileID: 8300000, guid: 6df922fb18efd7a45ba9b3851a1e388c, type: 3}
+    volume: 0.628
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   delayTime: 4
