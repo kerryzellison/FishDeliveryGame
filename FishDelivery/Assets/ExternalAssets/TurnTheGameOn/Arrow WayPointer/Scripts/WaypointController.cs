@@ -39,13 +39,13 @@
                 newObject = null;
             }
             nextWP = 0;
-            ChangeTarget();
+            ChangeTarget(0);
         }
 
         [ContextMenu("Reset")] public void Reset()
         {
             nextWP = 0;
-            ChangeTarget();
+            ChangeTarget(0);
         }
 
         void Update() {
@@ -74,22 +74,22 @@
             waypointList[waypointEvent - 1].waypointEvent.Invoke();
         }
 
-		public void ChangeTarget(){
-			int check = nextWP;
-			if (check < TotalWaypoints) {
-				if (currentWaypoint == null)
-					currentWaypoint = waypointList [0].waypoint.transform;
-				currentWaypoint.gameObject.SetActive (false);
-				currentWaypoint = waypointList [nextWP].waypoint.transform;
-				currentWaypoint.gameObject.SetActive (true);
-				nextWP += 1;
-            }
-			if (check == TotalWaypoints) {
-				Destroy (waypointArrow.gameObject);
-				Destroy (gameObject);
-            }
-            //WaypointEvent(check);
-            Debug.Log("Change Target " + check);
+		public void ChangeTarget(int targetNum){
+            currentWaypoint = waypointList[targetNum].waypoint.transform;
+
+   //         int check = nextWP;
+			//if (check < TotalWaypoints) {
+			//	if (currentWaypoint == null)
+			//		currentWaypoint = waypointList [0].waypoint.transform;
+			//	currentWaypoint.gameObject.SetActive (false);
+			//	currentWaypoint = waypointList [nextWP].waypoint.transform;
+			//	currentWaypoint.gameObject.SetActive (true);
+			//	nextWP += 1;
+   //         }
+			//if (check == TotalWaypoints) {
+			//	Destroy (waypointArrow.gameObject);
+			//	Destroy (gameObject);
+   //         }
         }
 
 		public void CreateArrow(){

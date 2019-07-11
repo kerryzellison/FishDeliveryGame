@@ -8,6 +8,7 @@ TagManager:
   - NitroPickup
   - CoinPickup
   - StoneHolder
+  - Arrow
   layers:
   - Default
   - TransparentFX

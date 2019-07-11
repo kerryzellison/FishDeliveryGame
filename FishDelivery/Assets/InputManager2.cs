@@ -49,7 +49,7 @@ public class InputManager2 : MonoBehaviour
     //connected scripts
     DriveController dc;
     CameraController cc;
-    public CarUpgrades upgrades;
+    CarUpgrades upgrades;
 
     GroundBoost gb;
 
@@ -71,6 +71,7 @@ public class InputManager2 : MonoBehaviour
         dc = GetComponent<DriveController>();
         cc = FindObjectOfType<CameraController>();
         gb = GetComponent<GroundBoost>();
+        upgrades = FindObjectOfType<CarUpgrades>();
     }
 
     // Update is called once per frame
